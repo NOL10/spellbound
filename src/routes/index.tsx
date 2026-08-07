@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import hero from "@/assets/hero.png";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
@@ -168,10 +169,10 @@ function Index() {
             <a href="#services" className="link-sweep">Services</a>
             <a href="#studio" className="link-sweep">Studio</a>
             <a href="#founder" className="link-sweep">Founder</a>
-            <a href="#contact" className="link-sweep">Contact</a>
+            <a href="/contact" className="link-sweep">Contact</a>
           </nav>
           <a
-            href="#contact"
+            href="/contact"
             className="group inline-flex items-center gap-2 rounded-full border border-foreground/80 px-4 py-2 text-sm transition hover:bg-foreground hover:text-background"
           >
             Start a project
@@ -314,7 +315,7 @@ function Index() {
                 Made <span className="italic">to be</span> remembered.
               </h2>
             </div>
-            <a href="#contact" className="hidden text-sm underline underline-offset-4 md:block">
+            <a href="/contact" className="hidden text-sm underline underline-offset-4 md:block">
               View archive →
             </a>
           </div>
@@ -326,7 +327,7 @@ function Index() {
               return (
                 <a
                   key={w.title}
-                  href="#contact"
+                  href="/contact"
                   className={`group block ${i % 2 === 1 ? "md:mt-32" : ""}`}
                 >
                   <div ref={ref} className="image-zoom overflow-hidden bg-muted">
@@ -421,14 +422,19 @@ function Index() {
         </div>
       </section>
 
-      <section className="py-28 md:py-40">
-        <div className="mx-auto max-w-5xl px-6 text-center md:px-10">
-          <p className="font-display text-4xl leading-tight md:text-6xl">
-            <span className="text-accent">"</span>The strongest brands are not
+      <section className="py-28 md:py-40 relative overflow-hidden group">
+        <span aria-hidden className="animate-magical-float absolute left-[10%] top-[20%] text-2xl text-accent/60 transition-all duration-500 group-hover:scale-150 group-hover:rotate-180 group-hover:text-accent" style={{ animationDelay: "0s" }}>✦</span>
+        <span aria-hidden className="animate-magical-float absolute right-[15%] top-[15%] text-xl text-gold/70 transition-all duration-500 group-hover:scale-150 group-hover:-rotate-180 group-hover:text-gold" style={{ animationDelay: "0.5s" }}>✧</span>
+        <span aria-hidden className="animate-magical-float absolute left-[20%] bottom-[25%] text-3xl text-spell/50 transition-all duration-500 group-hover:scale-175 group-hover:rotate-90 group-hover:text-spell" style={{ animationDelay: "1s" }}>✶</span>
+        <span aria-hidden className="animate-magical-float absolute right-[25%] bottom-[20%] text-2xl text-accent/80 transition-all duration-500 group-hover:scale-150 group-hover:-rotate-90 group-hover:text-accent" style={{ animationDelay: "1.5s" }}>✦</span>
+        <span aria-hidden className="animate-magical-float absolute left-[45%] top-[10%] text-lg text-gold/60 transition-all duration-500 group-hover:scale-125 group-hover:rotate-45 group-hover:text-gold" style={{ animationDelay: "2s" }}>✧</span>
+        <div className="mx-auto max-w-5xl px-6 text-center md:px-10 relative">
+          <p className="font-display text-4xl leading-tight md:text-6xl animate-quote-glow transition-all duration-500 group-hover:scale-105 group-hover:text-accent/90">
+            <span className="text-accent transition-colors duration-300 group-hover:text-gold">"</span>The strongest brands are not
             always the loudest — they are the ones people feel connected to.
-            <span className="text-accent">"</span>
+            <span className="text-accent transition-colors duration-300 group-hover:text-gold">"</span>
           </p>
-          <p className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <p className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-all duration-300 group-hover:text-foreground">
             Rachel Fargoes — Founder &amp; Brand Strategist
           </p>
         </div>
@@ -497,12 +503,78 @@ function Index() {
           </div>
           <div className="mt-16">
             <a
-              href="mailto:rachel@spellboundcomms.com"
+              href="/contact"
               className="inline-flex items-center gap-4 border border-foreground px-8 py-5 hover:bg-foreground hover:text-background transition-colors group"
             >
               <span className="text-eyebrow">Start a conversation</span>
               <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink text-cream py-20 px-6 md:px-12 border-t border-cream/10">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <div className="text-eyebrow text-gold mb-4">
+                <span className="mr-2">◆</span> Stay spellbound
+              </div>
+              <h3 className="font-display text-3xl md:text-4xl mb-4">
+                Subscribe to our newsletter
+              </h3>
+              <p className="text-cream/70 max-w-md mb-8">
+                Receive curated insights on brand storytelling, PR strategies, and cultural trends — delivered with intention.
+              </p>
+              <form className="flex flex-col sm:flex-row gap-4 max-w-md">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold/50 transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="bg-gold text-ink px-6 py-3 font-display text-sm uppercase tracking-wider hover:bg-gold/90 transition-colors"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+            <div className="flex flex-col justify-center md:items-end">
+              <div className="text-eyebrow text-gold mb-4">
+                <span className="mr-2">◆</span> Connect with us
+              </div>
+              <h3 className="font-display text-3xl md:text-4xl mb-6">
+                Follow the magic
+              </h3>
+              <div className="flex gap-6">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span className="text-sm">Instagram</span>
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  <span className="text-sm">LinkedIn</span>
+                </a>
+                <a
+                  href="mailto:rachel@spellboundcomms.com"
+                  className="group flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span className="text-sm">Email</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
