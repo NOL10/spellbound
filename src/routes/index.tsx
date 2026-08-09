@@ -1,11 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import hero from "@/assets/hero.png";
-import work1 from "@/assets/work-1.jpg";
-import work2 from "@/assets/work-2.jpg";
-import work3 from "@/assets/work-3.jpg";
-import work4 from "@/assets/work-4.jpg";
+import { workProjects } from "@/lib/work-data";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -93,13 +90,6 @@ const sectors = [
   ["Real Estate", "Lifestyle-driven residential and hospitality developments."],
 ] as const;
 
-const work = [
-  { img: work1, title: "RARA by Arshiya Singhvi", tags: ["Public Relations", "Design"], year: "2025" },
-  { img: work2, title: "Donna Cucina — Italian Summer", tags: ["Events", "F&B"], year: "2025" },
-  { img: work3, title: "Rever by RB", tags: ["Social", "Content"], year: "2025" },
-  { img: work4, title: "Jakobi Chocolatier", tags: ["PR", "Craft"], year: "2024" },
-];
-
 function useSpotlight(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     const el = ref.current;
@@ -133,14 +123,6 @@ function useImageZoom(ref: React.RefObject<HTMLDivElement | null>) {
 function Index() {
   const heroRef = useRef<HTMLElement>(null);
   useSpotlight(heroRef);
-  const work1Ref = useRef<HTMLDivElement>(null);
-  const work2Ref = useRef<HTMLDivElement>(null);
-  const work3Ref = useRef<HTMLDivElement>(null);
-  const work4Ref = useRef<HTMLDivElement>(null);
-  useImageZoom(work1Ref);
-  useImageZoom(work2Ref);
-  useImageZoom(work3Ref);
-  useImageZoom(work4Ref);
   const [time, setTime] = useState("");
   useEffect(() => {
     const tick = () => {
@@ -169,15 +151,15 @@ function Index() {
             <a href="#services" className="link-sweep">Services</a>
             <a href="#studio" className="link-sweep">Studio</a>
             <a href="#founder" className="link-sweep">Founder</a>
-            <a href="/contact" className="link-sweep">Contact</a>
+            <Link to="/contact" className="link-sweep">Contact</Link>
           </nav>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-2 rounded-full border border-foreground/80 px-4 py-2 text-sm transition hover:bg-foreground hover:text-background"
           >
             Start a project
             <span className="transition group-hover:translate-x-0.5">→</span>
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -315,22 +297,20 @@ function Index() {
                 Made <span className="italic">to be</span> remembered.
               </h2>
             </div>
-            <a href="/contact" className="hidden text-sm underline underline-offset-4 md:block">
+            <Link to="/work" className="hidden text-sm underline underline-offset-4 md:block">
               View archive →
-            </a>
+            </Link>
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2">
-            {work.map((w, i) => {
-              const refs = [work1Ref, work2Ref, work3Ref, work4Ref];
-              const ref = refs[i];
+            {workProjects.slice(0, 4).map((w, i) => {
               return (
-                <a
-                  key={w.title}
-                  href="/contact"
+                <Link
+                  key={w.slug}
+                  to={`/work/${w.slug}`}
                   className={`group block ${i % 2 === 1 ? "md:mt-32" : ""}`}
                 >
-                  <div ref={ref} className="image-zoom overflow-hidden bg-muted">
+                  <div className="image-zoom overflow-hidden bg-muted">
                     <img
                       src={w.img}
                       alt={w.title}
@@ -349,7 +329,7 @@ function Index() {
                       <span key={t}>— {t}</span>
                     ))}
                   </div>
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -502,13 +482,13 @@ function Index() {
             </div>
           </div>
           <div className="mt-16">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-4 border border-foreground px-8 py-5 hover:bg-foreground hover:text-background transition-colors group"
             >
               <span className="text-eyebrow">Start a conversation</span>
               <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
