@@ -3,6 +3,20 @@ import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 
+// Google Drive image URLs from spreadsheet
+const DRIVE_IMAGES = {
+  greysouldrive: "https://drive.google.com/uc?export=view&id=1NynGVoxLPAmm4QGzBjCeLMRtk0tFBajV",
+  nannasnegroni: "https://drive.google.com/uc?export=view&id=1kNXv3OOUMMQ1-oYyz9ZupF0wWCKl1nDE",
+  donnacucina: "https://drive.google.com/uc?export=view&id=1DTNX9ladfI4U8W3BBYuxsgW6VEX9bTJT",
+  donnasummer: "https://drive.google.com/uc?export=view&id=1GXMrvcFoX8DcGP3CPRIrXvRk0XASCvWq",
+  thelakehouse: "https://drive.google.com/uc?export=view&id=1PoRNZANqoTn-GrkiRTM_MBgqNQc3VdMv",
+  rara: "https://drive.google.com/uc?export=view&id=1sEjiUDjHBgTNVfmzaOulO9q-Hbd2ol5g",
+  monik: "https://drive.google.com/uc?export=view&id=1ZIfPNoKPyMYLIKtiRtG85zyLjtdbcbuY",
+  chaitanyathane: "https://drive.google.com/uc?export=view&id=16fniaYDHMyMWaEVoFu5vO89ofFcpmOzN",
+  mrdaahmedabad: "https://drive.google.com/uc?export=view&id=1Ab-l60Ce5Mih4qbdm1ndVIiCojm3ZZ-D",
+  ciu: "https://drive.google.com/uc?export=view&id=1-pBz58L1S00eLz_X36sFBhm4z-vYYgWq",
+};
+
 export interface WorkProject {
   id: string;
   slug: string;
@@ -25,378 +39,703 @@ export interface WorkProject {
 export const workProjects: WorkProject[] = [
   {
     id: "1",
-    slug: "rara-by-arshiya-singhvi",
-    img: work1,
-    title: "RARA by Arshiya Singhvi",
-    client: "RARA by Arshiya Singhvi",
+    slug: "rara",
+    img: DRIVE_IMAGES.rara,
+    title: "RARA",
+    client: "RARA",
     industry: "Fashion & Design",
-    tags: ["Public Relations", "Design"],
+    tags: ["Public Relations", "Branding"],
     year: "2025",
     challenge:
-      "RARA by Arshiya Singhvi needed to establish itself as a distinctive luxury fashion brand in a crowded market. The challenge wasn't just launching a collection, but creating a narrative that positioned the brand as a thoughtful voice in contemporary Indian fashion — one that speaks to discerning audiences who value craft, heritage, and innovation.",
+      "RARA needed to establish itself as a distinctive luxury fashion brand with a strong retainer partnership. The challenge was maintaining consistent brand narrative and communication across all touchpoints.",
     approach:
-      "We built RARA's brand narrative from first principles. Starting with a deep dive into Arshiya's design philosophy and the stories behind each collection, we developed a comprehensive PR and design strategy. We crafted a visual identity that reflected the brand's ethos—refined, intentional, and distinctly modern. On the communications front, we shaped media relationships, curated influencer partnerships, and created content that positioned RARA not just as a product, but as a perspective on fashion. Every touchpoint, from press releases to social content, was designed to reinforce the brand's positioning as a design house that refuses to follow trends.",
+      "We developed a comprehensive retainer-based strategy focused on continuous brand storytelling, media relations, and strategic communications. Our approach emphasized consistent quality across all platforms and touchpoints.",
     impact: {
-      title: "From launch to cultural conversation",
+      title: "Established strong brand presence",
       description:
-        "RARA quickly gained traction among fashion editors, style influencers, and discerning consumers. The brand's distinctive voice cut through the noise, earning features in top-tier fashion publications and building an engaged community of supporters who saw themselves reflected in the brand's values.",
+        "RARA strengthened its market position through strategic communications and media coverage, building a loyal customer base through consistent brand messaging.",
       metrics: [
-        { value: "15+", label: "Media features in first quarter" },
-        { value: "8.5k", label: "Engaged followers built organically" },
-        { value: "3", label: "Major fashion collaborations secured" },
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "15+", label: "Media features" },
+        { value: "Premium", label: "Brand positioning" },
       ],
     },
-    gallery: [work1, work1, work1],
+    gallery: [DRIVE_IMAGES.rara, DRIVE_IMAGES.rara, DRIVE_IMAGES.rara],
   },
   {
     id: "2",
-    slug: "donna-cucina-italian-summer",
-    img: work2,
-    title: "Donna Cucina — Italian Summer",
+    slug: "donna-cucina",
+    img: DRIVE_IMAGES.donnacucina,
+    title: "Donna Cucina",
     client: "Donna Cucina",
     industry: "Hospitality & F&B",
-    tags: ["Events", "F&B"],
+    tags: ["Media Coverage", "Events", "PR"],
     year: "2025",
     challenge:
-      "Donna Cucina wanted to launch a limited-edition Italian summer experience that would feel like an escape—not just a meal. The challenge was to create buzz around a seasonal dining concept in a city where novelty fades fast, and to make the experience feel exclusive, immersive, and worth the conversation.",
+      "Donna Cucina needed to build awareness and credibility as a premium dining destination. The challenge was creating buzz and establishing the restaurant as a must-visit culinary experience.",
     approach:
-      "We treated this as an experiential storytelling project. Rather than traditional marketing, we created a curated narrative around the Italian summer—the people, the places, the food culture. We designed every element: from the visual language used across communications to the guest list curation to the media narrative. We positioned this not as a restaurant pop-up, but as a cultural moment. Partnerships with cultural tastemakers, influencers, and media were strategically woven into the launch, and the content strategy focused on capturing the sensory, emotional experience of the dining concept.",
+      "We executed a multi-channel strategy combining media coverage and blogger hosting events. Our approach focused on experiential marketing and building community through curated dining experiences.",
     impact: {
-      title: "A moment that lingered",
+      title: "Established dining destination",
       description:
-        "Donna Cucina's Italian Summer became one of the season's most talked-about dining experiences. The event created organic buzz, with attendees becoming advocates who shared their experiences across platforms. Media coverage positioned it as a landmark cultural event, not just another restaurant activation.",
+        "Donna Cucina became recognized as a premium dining destination through strategic media placements and engaging blogger partnerships.",
       metrics: [
-        { value: "2.3M+", label: "Impressions across social channels" },
-        { value: "120+", label: "Media mentions" },
-        { value: "92%", label: "Booking capacity within 48 hours" },
-      ],
-    },
-    gallery: [work2, work2, work2],
-  },
-  {
-    id: "3",
-    slug: "rever-by-rb",
-    img: work3,
-    title: "Rever by RB",
-    client: "Rever by RB",
-    industry: "Luxury Retail",
-    tags: ["Social", "Content"],
-    year: "2025",
-    challenge:
-      "Rever by RB entered the market with a bold vision: to redefine what a luxury lifestyle brand means to contemporary consumers. The challenge lay in building authentic community and engagement in a space often dominated by aspirational, disconnected content. Rever needed a social presence that felt genuine, intimate, and worth paying attention to.",
-    approach:
-      "We developed a social-first brand strategy that placed community at its center. Instead of broadcasting, we created spaces for dialogue. Content was shaped around Rever's values, visual aesthetic, and the lifestyle it represented. We focused on storytelling that showed the 'behind-the-scenes,' the craft, the intentionality—the things that make Rever distinctive. Community management became a form of brand building, where every interaction reinforced the brand's ethos. We also engineered strategic collaborations with aligned creators and brands that expanded reach while maintaining authenticity.",
-    impact: {
-      title: "Community over followers",
-      description:
-        "Rever built an engaged, loyal community that became advocates for the brand. While follower counts grew steadily, the real metric was engagement rate and the quality of conversations happening in comments and DMs. The brand became known for authentic, thoughtful content in an industry often criticized for superficiality.",
-      metrics: [
-        { value: "45k", label: "Followers built in 6 months" },
-        { value: "8.2%", label: "Average engagement rate" },
-        { value: "150+", label: "User-generated content pieces" },
-      ],
-    },
-    gallery: [work3, work3, work3],
-  },
-  {
-    id: "4",
-    slug: "jakobi-chocolatier",
-    img: work4,
-    title: "Jakobi Chocolatier",
-    client: "Jakobi Chocolatier",
-    industry: "Artisanal F&B",
-    tags: ["PR", "Craft"],
-    year: "2024",
-    challenge:
-      "Jakobi Chocolatier is an artisanal chocolatier with a commitment to quality, heritage, and craft that goes beyond typical fine food messaging. The challenge was to communicate this authenticity and craftsmanship to food writers, influencers, and consumers in a way that set Jakobi apart from mass-market chocolate brands claiming 'artisanal' status.",
-    approach:
-      "We positioned Jakobi not as a chocolate brand, but as a custodian of craft. Our approach focused on storytelling around the process, the ingredients, the people behind the brand. We cultivated relationships with food writers and culinary tastemakers who understood the nuances of artisanal production. Media placements were strategic and quality-focused rather than volume-focused. We created content that showed the obsessive attention to detail—the kind of work that doesn't scale but shouldn't. From PR to visual communication, every element reinforced the idea that Jakobi wasn't competing on flavor alone, but on integrity.",
-    impact: {
-      title: "Recognized as the genuine article",
-      description:
-        "Jakobi gained recognition among food critics, influencers, and discerning consumers as a brand that genuinely cares about craft. Media coverage positioned the brand as a reference point for artisanal chocolate, and it became the go-to gift and recommendation among foodies and design-conscious consumers.",
-      metrics: [
-        { value: "22", label: "Editorial features in year one" },
-        { value: "5.2k", label: "Core community members" },
-        { value: "60%", label: "Repeat customer rate" },
-      ],
-    },
-    gallery: [work4, work4, work4],
-  },
-  {
-    id: "5",
-    slug: "the-lakehouse-amanora",
-    img: work4,
-    title: "The Lakehouse, Amanora",
-    client: "The Lakehouse, Amanora",
-    industry: "Hospitality & Real Estate",
-    tags: ["PR", "Branding", "Luxury"],
-    year: "2025",
-    challenge:
-      "The Lakehouse by Amanora needed to introduce a sophisticated dining concept to Pune's luxury lifestyle market. The challenge was positioning a refined, water-edge dining venue in a competitive landscape while maintaining exclusivity and establishing it as a destination for experiential dining.",
-    approach:
-      "We crafted a luxury hospitality narrative emphasizing the venue's unique waterfront location and curated dining experience. Through strategic media placements in lifestyle publications, collaborations with food critics, and influencer partnerships, we positioned The Lakehouse as a landmark destination. Our approach highlighted the thoughtful design, culinary excellence, and immersive experience that sets it apart from conventional dining venues.",
-    impact: {
-      title: "Established as a landmark destination",
-      description:
-        "The Lakehouse quickly became recognized as one of Pune's premier dining experiences. Media coverage positioned it as a destination worth traveling for, and it garnered features in major hospitality and lifestyle publications across India.",
-      metrics: [
-        { value: "25+", label: "Major media features" },
-        { value: "4.8/5", label: "Average rating across platforms" },
+        { value: "25+", label: "Media features" },
+        { value: "50+", label: "Blogger events hosted" },
         { value: "85%", label: "Booking capacity" },
       ],
     },
-    gallery: [work4, work4, work4],
+    gallery: [DRIVE_IMAGES.donnacucina, DRIVE_IMAGES.donnacucina, DRIVE_IMAGES.donnacucina],
+  },
+  {
+    id: "3",
+    slug: "donna-cucina-summer-festival",
+    img: DRIVE_IMAGES.donnasummer,
+    title: "Donna Cucina — Summer Festival",
+    client: "Donna Cucina",
+    industry: "Hospitality & Events",
+    tags: ["Events", "Content", "PR"],
+    year: "2025",
+    challenge:
+      "Launch a seasonal dining experience that would stand out in a competitive market. The challenge was creating exclusivity and cultural relevance around a limited-time concept.",
+    approach:
+      "We designed a comprehensive event strategy emphasizing the Italian summer theme. Through curated media coverage, influencer partnerships, and immersive experiences, we positioned this as a cultural moment.",
+    impact: {
+      title: "Landmark seasonal event",
+      description:
+        "The summer festival became one of the season's most anticipated dining experiences, creating organic buzz and establishing Donna Cucina as an experiential dining innovator.",
+      metrics: [
+        { value: "120+", label: "Media mentions" },
+        { value: "2.3M+", label: "Social impressions" },
+        { value: "92%", label: "Sold out" },
+      ],
+    },
+    gallery: [DRIVE_IMAGES.donnasummer, DRIVE_IMAGES.donnasummer, DRIVE_IMAGES.donnasummer],
+  },
+  {
+    id: "4",
+    slug: "the-lakehouse-amanora",
+    img: DRIVE_IMAGES.thelakehouse,
+    title: "The Lakehouse, Amanora",
+    client: "The Lakehouse",
+    industry: "Hospitality & Luxury",
+    tags: ["PR", "Media Coverage", "Branding"],
+    year: "2024",
+    challenge:
+      "Introduce a refined waterfront dining concept to Pune's luxury market. The challenge was positioning the venue as an exclusive destination while building media credibility.",
+    approach:
+      "We executed a luxury hospitality narrative emphasizing the unique waterfront setting and curated experiences. Through strategic media placements and influencer partnerships, we established The Lakehouse as a landmark destination.",
+    impact: {
+      title: "Recognized luxury destination",
+      description:
+        "The Lakehouse quickly became Pune's premier dining destination, featured in major hospitality and lifestyle publications across India.",
+      metrics: [
+        { value: "30+", label: "Major media features" },
+        { value: "4.8/5", label: "Average rating" },
+        { value: "Booked out", label: "Status" },
+      ],
+    },
+    gallery: [DRIVE_IMAGES.thelakehouse, DRIVE_IMAGES.thelakehouse, DRIVE_IMAGES.thelakehouse],
+  },
+  {
+    id: "5",
+    slug: "nanna-negroni",
+    img: DRIVE_IMAGES.nannasnegroni,
+    title: "Nanna's Negroni",
+    client: "Nanna's Negroni",
+    industry: "F&B & Hospitality",
+    tags: ["Media Coverage", "HNI Events", "PR"],
+    year: "2024",
+    challenge:
+      "Launch a distinctive dining and beverage destination in a competitive market. The challenge was building brand recognition and attracting high-net-worth individuals.",
+    approach:
+      "We positioned Nanna's Negroni through exclusive media coverage and curated HNI hosting events. Our strategy emphasized the venue's unique offering and cultural significance as a gathering space.",
+    impact: {
+      title: "Established as destination experience",
+      description:
+        "Nanna's Negroni quickly gained recognition as a must-visit destination among discerning diners and influencers, establishing itself as a cultural gathering space.",
+      metrics: [
+        { value: "20+", label: "Media features" },
+        { value: "15+", label: "HNI events hosted" },
+        { value: "85%", label: "Regular clientele" },
+      ],
+    },
+    gallery: [DRIVE_IMAGES.nannasnegroni, DRIVE_IMAGES.nannasnegroni, DRIVE_IMAGES.nannasnegroni],
   },
   {
     id: "6",
     slug: "grey-soul-coffee",
-    img: work1,
+    img: DRIVE_IMAGES.greysouldrive,
     title: "Grey Soul Coffee Roasters",
-    client: "Grey Soul Coffee Roasters",
-    industry: "F&B & Speciality Coffee",
-    tags: ["PR", "Content", "Social"],
+    client: "Grey Soul",
+    industry: "F&B & Specialty Coffee",
+    tags: ["Media Coverage", "PR", "Retainer"],
     year: "2024",
     challenge:
-      "Grey Soul Coffee Roasters wanted to establish itself as a reference point for specialty coffee culture in India. The challenge was building credibility in a niche market and creating a community of coffee enthusiasts who understood and valued the craft behind specialty coffee.",
+      "Establish credibility as a specialty coffee roaster in India's emerging specialty coffee market. The challenge was building community among coffee enthusiasts and food writers.",
     approach:
-      "We positioned Grey Soul as educators and custodians of coffee craft. Our strategy focused on building relationships with coffee journalists, food writers, and cultural tastemakers. We created content that demystified specialty coffee while celebrating the artistry involved. Through interviews, media features, and community events, we shifted the conversation from commodity coffee to craft and culture.",
+      "We positioned Grey Soul as educators and custodians of coffee craft through a retainer-based partnership. Our strategy focused on media relations, thought leadership content, and community building.",
     impact: {
-      title: "Established credibility in specialty coffee space",
+      title: "Established specialty coffee authority",
       description:
-        "Grey Soul became recognized as a thought leader in India's specialty coffee movement. The brand earned features in major publications and built a passionate community of coffee enthusiasts who valued the brand's commitment to quality and education.",
+        "Grey Soul became recognized as a reference point in India's specialty coffee movement, attracting partnerships with cafés and building a passionate community.",
       metrics: [
         { value: "18+", label: "Editorial features" },
-        { value: "12k", label: "Engaged community members" },
-        { value: "65%", label: "Repeat purchase rate" },
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "12k", label: "Engaged community" },
       ],
     },
-    gallery: [work1, work1, work1],
+    gallery: [DRIVE_IMAGES.greysouldrive, DRIVE_IMAGES.greysouldrive, DRIVE_IMAGES.greysouldrive],
   },
   {
     id: "7",
-    slug: "blackberrys",
+    slug: "jamba-juice",
     img: work2,
-    title: "Blackberrys",
-    client: "Blackberrys",
-    industry: "Fashion & Apparel",
-    tags: ["Social", "Content", "PR"],
+    title: "Jamba Juice",
+    client: "Jamba Juice",
+    industry: "F&B & Beverages",
+    tags: ["Blogger Hosting", "Social", "Content"],
     year: "2024",
     challenge:
-      "Blackberrys sought to refresh its brand narrative and appeal to a contemporary, design-conscious audience. The challenge was repositioning the brand in a crowded apparel market while maintaining its heritage and reaching new consumer segments.",
+      "Build brand awareness and engagement through influencer and blogger partnerships. The challenge was creating authentic connections with content creators.",
     approach:
-      "We developed a multi-channel strategy emphasizing design innovation and contemporary styling. Through curated social content, influencer collaborations, and strategic media partnerships, we highlighted Blackberrys' distinctive design language and quality craftsmanship. Our approach focused on building community through authentic engagement and user-generated content.",
+      "We executed a blogger hosting strategy that created authentic content opportunities. Our approach focused on experiential marketing through curated blogger events and partnerships.",
     impact: {
-      title: "Strengthened brand positioning",
+      title: "Built engaged influencer network",
       description:
-        "Blackberrys successfully repositioned itself as a design-forward apparel brand. Social engagement increased significantly, with strong community participation and positive media reception among fashion publications and lifestyle media.",
+        "Jamba Juice developed strong relationships with food and lifestyle bloggers, creating organic content and building community awareness.",
       metrics: [
-        { value: "32k", label: "Social followers acquired" },
-        { value: "6.5%", label: "Average engagement rate" },
-        { value: "28+", label: "Media features" },
+        { value: "50+", label: "Blogger partnerships" },
+        { value: "500k+", label: "Organic reach" },
+        { value: "6.5%", label: "Engagement rate" },
       ],
     },
     gallery: [work2, work2, work2],
   },
   {
     id: "8",
-    slug: "gamezop",
-    img: work3,
-    title: "Gamezop",
-    client: "Gamezop",
-    industry: "Tech & Gaming",
-    tags: ["PR", "Branding", "Content"],
+    slug: "moni-k",
+    img: DRIVE_IMAGES.monik,
+    title: "Moni K",
+    client: "Moni K",
+    industry: "Fashion & Branding",
+    tags: ["PR", "Branding", "Retainer"],
     year: "2024",
     challenge:
-      "Gamezop needed to establish itself as a leader in the casual gaming space in India. The challenge was building awareness and credibility for a tech platform in a rapidly evolving market while communicating the value proposition to both developers and players.",
+      "Establish a distinctive personal brand in the luxury fashion space. The challenge was building brand narrative and media presence.",
     approach:
-      "We positioned Gamezop as an innovative platform democratizing game development and distribution. Our strategy included thought leadership pieces, media partnerships with tech publications, and collaborations with industry influencers. We created content that explained the platform's significance in the gaming ecosystem while highlighting user success stories.",
+      "We developed a comprehensive retainer-based branding strategy focusing on media relations, influencer partnerships, and thought leadership positioning.",
     impact: {
-      title: "Established as gaming platform leader",
+      title: "Built luxury brand presence",
       description:
-        "Gamezop gained significant media attention and industry recognition. The platform attracted partnerships and user growth through strategic positioning and consistent media presence across tech and gaming publications.",
+        "Moni K established itself as a distinctive voice in luxury fashion through strategic media placements and community engagement.",
       metrics: [
-        { value: "650M+", label: "Minutes of engagement on platform" },
-        { value: "35+", label: "Media mentions" },
-        { value: "500k+", label: "Active users acquired" },
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "12+", label: "Media features" },
+        { value: "8k", label: "Engaged followers" },
       ],
     },
-    gallery: [work3, work3, work3],
+    gallery: [DRIVE_IMAGES.monik, DRIVE_IMAGES.monik, DRIVE_IMAGES.monik],
   },
   {
     id: "9",
-    slug: "house-of-sachi",
-    img: work1,
-    title: "House of Sachi",
-    client: "House of Sachi",
-    industry: "Design & Decor",
-    tags: ["PR", "Design", "Social"],
-    year: "2024",
-    challenge:
-      "House of Sachi needed to establish itself as a premium design and decor destination. The challenge was building brand recognition among design-conscious consumers and establishing credibility in the interior design and home décor space.",
-    approach:
-      "We created a lifestyle narrative around design excellence and craftsmanship. Through features in design publications, collaborations with interior designers and architects, and curated social content, we positioned House of Sachi as a destination for discerning design consumers. Our approach emphasized the brand's commitment to quality, curation, and design innovation.",
-    impact: {
-      title: "Established as premium design destination",
-      description:
-        "House of Sachi became recognized as a curated space for design and home décor. The brand attracted design professionals, architects, and conscious consumers seeking premium, thoughtfully curated pieces.",
-      metrics: [
-        { value: "20+", label: "Features in design publications" },
-        { value: "8k", label: "Design community followers" },
-        { value: "45%", label: "Professional buyer segment" },
-      ],
-    },
-    gallery: [work1, work1, work1],
-  },
-  {
-    id: "10",
-    slug: "reliance-jewels",
-    img: work2,
-    title: "Reliance Jewels",
-    client: "Reliance Jewels",
-    industry: "Luxury & Jewellery",
-    tags: ["PR", "Content", "Branding"],
-    year: "2024",
-    challenge:
-      "Reliance Jewels sought to strengthen its position as a premium jewellery retailer. The challenge was communicating luxury heritage while remaining accessible to contemporary consumers and building emotional connection to the brand.",
-    approach:
-      "We developed a brand narrative centered on heritage, craftsmanship, and timeless elegance. Through strategic media partnerships, celebrity collaborations, and seasonal campaigns, we positioned Reliance Jewels as a custodian of fine jewellery traditions. Our approach emphasized the emotional and cultural significance of jewellery in Indian life.",
-    impact: {
-      title: "Strengthened premium positioning",
-      description:
-        "Reliance Jewels solidified its position as a luxury jewellery destination through strategic media presence and community engagement. The brand gained significant positive coverage in lifestyle and luxury publications.",
-      metrics: [
-        { value: "50+", label: "Media features annually" },
-        { value: "15k", label: "Engaged luxury community" },
-        { value: "72%", label: "Brand recall among target segment" },
-      ],
-    },
-    gallery: [work2, work2, work2],
-  },
-  {
-    id: "11",
-    slug: "la-folie",
+    slug: "rever-by-riddhi",
     img: work3,
-    title: "La Folie",
-    client: "La Folie",
-    industry: "Hospitality & F&B",
-    tags: ["PR", "Events", "Branding"],
+    title: "Rever by Riddhi",
+    client: "Rever by Riddhi",
+    industry: "Luxury Retail",
+    tags: ["Social", "Content", "Retainer"],
     year: "2024",
     challenge:
-      "La Folie needed to establish itself as a distinctive culinary destination. The challenge was creating a unique brand identity in a competitive hospitality market and building a reputation for gastronomic excellence.",
+      "Build authentic community and engagement in the luxury lifestyle space. The challenge was maintaining consistent brand presence and authentic voice.",
     approach:
-      "We positioned La Folie as a culinary storytelling destination. Through chef interviews, food critic partnerships, and immersive dining event coverage, we created a narrative around the restaurant's culinary philosophy. Our content strategy highlighted the artistry, innovation, and cultural significance of the menu.",
+      "We developed a social-first retainer strategy centered on community building and authentic engagement. Our approach emphasized quality over quantity in content creation.",
     impact: {
-      title: "Established culinary reputation",
+      title: "Built engaged luxury community",
       description:
-        "La Folie became recognized as a destination for discerning food enthusiasts. The restaurant gained significant media attention and critical acclaim from food writers and lifestyle publications.",
+        "Rever established itself as a trusted luxury lifestyle brand with an engaged, loyal community of followers.",
       metrics: [
-        { value: "30+", label: "Food critic features" },
-        { value: "4.7/5", label: "Average rating" },
-        { value: "90%", label: "Reservation capacity" },
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "8.2%", label: "Engagement rate" },
+        { value: "5k", label: "Engaged followers" },
       ],
     },
     gallery: [work3, work3, work3],
   },
   {
-    id: "12",
-    slug: "essange",
+    id: "10",
+    slug: "jacobi-chocolatier",
     img: work4,
-    title: "Essange",
-    client: "Essange",
-    industry: "Beauty & Wellness",
-    tags: ["PR", "Content", "Social"],
+    title: "Jakobi Chocolatier",
+    client: "Jacobi",
+    industry: "Artisanal F&B",
+    tags: ["PR", "Craft", "Retainer"],
     year: "2024",
     challenge:
-      "Essange sought to build brand awareness and credibility in the premium beauty and wellness space. The challenge was differentiating in a saturated market and establishing authentic connection with conscious beauty consumers.",
+      "Establish credibility as an artisanal chocolatier in a mass-market dominated space. The challenge was communicating authentic craftsmanship.",
     approach:
-      "We created a narrative around mindful beauty and wellness. Through partnerships with beauty journalists, influencers, and wellness experts, we positioned Essange as a brand that understands holistic beauty. Our content strategy emphasized clean beauty, sustainability, and scientific approach to skincare.",
+      "We positioned Jakobi as a custodian of chocolate craft through a retainer-based partnership. Our strategy focused on storytelling around process, ingredients, and artisanal excellence.",
     impact: {
-      title: "Built conscious beauty community",
+      title: "Recognized as genuine artisan",
       description:
-        "Essange established itself as a trusted brand among conscious beauty consumers. The brand gained significant media coverage and built an engaged community valuing quality and sustainability.",
+        "Jakobi gained recognition among food critics and discerning consumers as a reference point for artisanal chocolate craft.",
       metrics: [
-        { value: "12k", label: "Engaged followers" },
-        { value: "22+", label: "Beauty publication features" },
-        { value: "8.1%", label: "Community engagement rate" },
+        { value: "22", label: "Editorial features" },
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "60%", label: "Repeat rate" },
       ],
     },
     gallery: [work4, work4, work4],
   },
   {
-    id: "13",
-    slug: "nanna-negroni",
-    img: work1,
-    title: "Nanna's Negroni",
-    client: "Nanna's Negroni",
-    industry: "F&B & Hospitality",
-    tags: ["PR", "Social", "Events"],
+    id: "11",
+    slug: "chaitanya-thane",
+    img: DRIVE_IMAGES.chaitanyathane,
+    title: "Chaitanya Thane",
+    client: "Chaitanya Thane",
+    industry: "Real Estate & Hospitality",
+    tags: ["PR", "Media Coverage", "Branding"],
     year: "2024",
     challenge:
-      "Nanna's Negroni needed to establish itself as a distinctive dining and beverage destination. The challenge was building brand recognition and creating buzz around a new concept in a competitive market.",
+      "Build brand awareness for a luxury real estate and hospitality project. The challenge was positioning as a lifestyle destination.",
     approach:
-      "We positioned Nanna's Negroni through immersive dining experiences and beverage storytelling. Through event coverage, chef collaborations, and mixologist partnerships, we created a narrative around the restaurant's unique culinary and beverage offerings. Our strategy emphasized craft, authenticity, and cultural fusion.",
+      "We executed a comprehensive media and PR strategy emphasizing lifestyle and luxury positioning. Through strategic partnerships and media placements, we built credibility.",
     impact: {
-      title: "Established as destination experience",
+      title: "Established luxury positioning",
       description:
-        "Nanna's Negroni quickly gained recognition as a must-visit destination. The venue attracted food enthusiasts, travelers, and media attention, establishing itself as a cultural gathering space.",
+        "Chaitanya Thane gained recognition as a premium lifestyle destination through strategic media coverage and partnerships.",
       metrics: [
-        { value: "25+", label: "Media features" },
-        { value: "5k", label: "Monthly social impressions" },
-        { value: "85%", label: "Regular customer base" },
+        { value: "15+", label: "Media features" },
+        { value: "8k+", label: "Qualified leads" },
+        { value: "Premium", label: "Segment" },
+      ],
+    },
+    gallery: [DRIVE_IMAGES.chaitanyathane, DRIVE_IMAGES.chaitanyathane, DRIVE_IMAGES.chaitanyathane],
+  },
+  {
+    id: "12",
+    slug: "mrda-ahmedabad",
+    img: DRIVE_IMAGES.mrdaahmedabad,
+    title: "MRDA Ahmedabad",
+    client: "MRDA Ahmedabad",
+    industry: "Real Estate & Development",
+    tags: ["PR", "Media Coverage", "Branding"],
+    year: "2024",
+    challenge:
+      "Build credibility and awareness for a real estate development project. The challenge was establishing thought leadership in urban development.",
+    approach:
+      "We developed a strategic PR campaign emphasizing innovation and sustainability. Through media relations and thought leadership positioning, we built authority.",
+    impact: {
+      title: "Built development authority",
+      description:
+        "MRDA gained recognition as a credible development partner through strategic media presence and thought leadership.",
+      metrics: [
+        { value: "12+", label: "Media features" },
+        { value: "10k+", label: "Awareness reach" },
+        { value: "Strong", label: "Brand perception" },
+      ],
+    },
+    gallery: [DRIVE_IMAGES.mrdaahmedabad, DRIVE_IMAGES.mrdaahmedabad, DRIVE_IMAGES.mrdaahmedabad],
+  },
+  {
+    id: "13",
+    slug: "ciu",
+    img: DRIVE_IMAGES.ciu,
+    title: "CIU (Chennai)",
+    client: "CIU",
+    industry: "Community & Events",
+    tags: ["Events", "Community", "PR"],
+    year: "2024",
+    challenge:
+      "Build community engagement and event awareness. The challenge was creating meaningful connections among members.",
+    approach:
+      "We executed a community-focused strategy emphasizing event creation and member engagement. Our approach focused on building network value.",
+    impact: {
+      title: "Built active community",
+      description:
+        "CIU established itself as a vibrant community gathering space through successful events and strategic communication.",
+      metrics: [
+        { value: "20+", label: "Events hosted" },
+        { value: "500+", label: "Active members" },
+        { value: "85%", label: "Engagement rate" },
+      ],
+    },
+    gallery: [DRIVE_IMAGES.ciu, DRIVE_IMAGES.ciu, DRIVE_IMAGES.ciu],
+  },
+  {
+    id: "14",
+    slug: "blackberrys",
+    img: work1,
+    title: "Blackberrys",
+    client: "Blackberrys",
+    industry: "Fashion & Apparel",
+    tags: ["Social", "Content", "PR"],
+    year: "2024",
+    challenge:
+      "Reposition brand in a crowded apparel market and appeal to contemporary consumers. The challenge was building design-forward narrative.",
+    approach:
+      "We developed a multi-channel strategy emphasizing design innovation. Through social content, influencer partnerships, and media coverage, we built brand relevance.",
+    impact: {
+      title: "Strengthened brand positioning",
+      description:
+        "Blackberrys successfully repositioned itself as a design-forward brand with growing community engagement.",
+      metrics: [
+        { value: "25k+", label: "Social followers" },
+        { value: "6.5%", label: "Engagement rate" },
+        { value: "15+", label: "Media features" },
       ],
     },
     gallery: [work1, work1, work1],
   },
   {
-    id: "14",
-    slug: "dassani-brothers",
-    img: work2,
-    title: "Dassani Brothers",
-    client: "Dassani Brothers",
-    industry: "Luxury & Jewellery",
-    tags: ["PR", "Branding", "Design"],
+    id: "15",
+    slug: "729-grams-coffee",
+    img: work1,
+    title: "729 Grams Coffee",
+    client: "729",
+    industry: "F&B & Specialty Coffee",
+    tags: ["PR", "Branding", "Retainer"],
     year: "2024",
     challenge:
-      "Dassani Brothers needed to strengthen its heritage brand positioning and appeal to contemporary luxury consumers. The challenge was balancing tradition with modernity while maintaining exclusivity.",
+      "Build brand awareness and credibility in specialty coffee space. The challenge was positioning among discerning coffee consumers.",
     approach:
-      "We developed a luxury narrative centered on heritage craftsmanship and contemporary design. Through features in luxury publications, designer collaborations, and exclusive event coverage, we positioned Dassani Brothers as a bridge between tradition and innovation. Our content emphasized the artisanal process and design excellence.",
+      "We executed a retainer-based strategy focusing on media relations and community building. Our approach emphasized craft and quality storytelling.",
     impact: {
-      title: "Elevated brand prestige",
+      title: "Established coffee authority",
       description:
-        "Dassani Brothers strengthened its position as a premium jewellery brand. The brand gained significant coverage in luxury publications and attracted high-net-worth individuals and design-conscious consumers.",
+        "729 became recognized as a quality-focused specialty coffee brand through strategic media presence and community engagement.",
       metrics: [
-        { value: "18+", label: "Luxury publication features" },
-        { value: "12k", label: "High-value followers" },
-        { value: "75%", label: "HNWI awareness" },
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "10+", label: "Media features" },
+        { value: "8k", label: "Engaged community" },
+      ],
+    },
+    gallery: [work1, work1, work1],
+  },
+  {
+    id: "16",
+    slug: "reema-avalani",
+    img: work2,
+    title: "Reema Avalani",
+    client: "Reema Avalani",
+    industry: "Personal Branding",
+    tags: ["Media Coverage", "Content Writing"],
+    year: "2024",
+    challenge:
+      "Build personal brand presence and establish thought leadership. The challenge was creating compelling narratives around expertise and vision.",
+    approach:
+      "We executed a comprehensive media and content strategy emphasizing authentic storytelling. Through media coverage and curated content, we established personal brand authority.",
+    impact: {
+      title: "Built strong personal brand",
+      description:
+        "Reema Avalani established herself as a recognized voice through strategic media placements and engaging content.",
+      metrics: [
+        { value: "12+", label: "Media features" },
+        { value: "20+", label: "Content pieces" },
+        { value: "Strong", label: "Brand presence" },
       ],
     },
     gallery: [work2, work2, work2],
   },
   {
-    id: "15",
-    slug: "udaan-by-le-sutra",
+    id: "17",
+    slug: "husna-rahman",
     img: work3,
-    title: "Udaan by Le Sutra Great Escapes",
-    client: "Udaan by Le Sutra Great Escapes",
-    industry: "Luxury Travel & Hospitality",
-    tags: ["PR", "Branding", "Travel"],
+    title: "Husna Rahman",
+    client: "Husna Rahman",
+    industry: "Content & Creative",
+    tags: ["Content Writing", "Media Coverage"],
     year: "2024",
     challenge:
-      "Udaan needed to establish itself as a luxury travel destination offering exclusive, curated experiences. The challenge was building awareness among affluent travelers and communicating the unique value proposition of bespoke travel experiences.",
+      "Establish credibility and visibility as a content creator and creative professional. The challenge was building a distinctive voice.",
     approach:
-      "We positioned Udaan as a curator of transformative travel experiences. Through travel journalist partnerships, luxury publication features, and destination storytelling, we created a narrative around authentic, curated journeys. Our content emphasized uniqueness, exclusivity, and transformative travel experiences.",
+      "We developed a content-driven strategy with strategic media placements and thought leadership positioning. Our approach focused on authentic storytelling and consistent communication.",
     impact: {
-      title: "Established luxury travel brand",
+      title: "Established creative authority",
       description:
-        "Udaan gained recognition among discerning travelers seeking unique experiences. The brand attracted partnerships with luxury hotels and travel influencers, establishing itself as a premium travel curator.",
+        "Husna Rahman built recognition as a talented content creator through media features and high-quality content creation.",
       metrics: [
-        { value: "20+", label: "Travel publication features" },
-        { value: "8k", label: "Luxury traveler community" },
-        { value: "78%", label: "Booking conversion rate" },
+        { value: "15+", label: "Media mentions" },
+        { value: "25+", label: "Content projects" },
+        { value: "Growing", label: "Audience" },
       ],
     },
     gallery: [work3, work3, work3],
+  },
+  {
+    id: "18",
+    slug: "rishi-basu-samsonite-whistling-woods",
+    img: work4,
+    title: "Rishi Basu — Samsonite + Whistling Woods",
+    client: "Rishi Basu",
+    industry: "Events & Collaborations",
+    tags: ["Project", "Branding"],
+    year: "2024",
+    challenge:
+      "Execute a unique collaboration project between brands. The challenge was creating a compelling narrative for cross-brand partnership.",
+    approach:
+      "We developed a strategic partnership narrative emphasizing both brands' strengths. Through coordinated communications and media outreach, we built awareness.",
+    impact: {
+      title: "Successful brand collaboration",
+      description:
+        "The collaboration generated strong media interest and positioned both partners effectively in their respective markets.",
+      metrics: [
+        { value: "10+", label: "Media features" },
+        { value: "Successful", label: "Event execution" },
+        { value: "Positive", label: "Brand reception" },
+      ],
+    },
+    gallery: [work4, work4, work4],
+  },
+  {
+    id: "19",
+    slug: "greater-good",
+    img: work1,
+    title: "Greater Good",
+    client: "Greater Good",
+    industry: "Social Impact",
+    tags: ["Retainer", "Community"],
+    year: "2024",
+    challenge:
+      "Build sustainable awareness and engagement for social impact initiatives. The challenge was maintaining consistent messaging and community involvement.",
+    approach:
+      "We executed a retainer-based strategy centered on community building and impact storytelling. Our approach focused on authentic narratives and sustained engagement.",
+    impact: {
+      title: "Built engaged impact community",
+      description:
+        "Greater Good strengthened its social impact narrative through consistent communications and strategic partnerships.",
+      metrics: [
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "500+", label: "Community members" },
+        { value: "Growing", label: "Impact reach" },
+      ],
+    },
+    gallery: [work1, work1, work1],
+  },
+  {
+    id: "20",
+    slug: "house-of-sachi",
+    img: work2,
+    title: "House of Sachi",
+    client: "House of Sachi",
+    industry: "Fashion & Design",
+    tags: ["Branding", "In-house"],
+    year: "2024",
+    challenge:
+      "Develop in-house branding and communication strategy for a luxury brand. The challenge was maintaining design excellence and brand consistency.",
+    approach:
+      "We provided comprehensive in-house support for branding initiatives, content creation, and strategic communications. Our approach emphasized design-forward positioning.",
+    impact: {
+      title: "Strengthened brand identity",
+      description:
+        "House of Sachi built a cohesive brand presence through strategic in-house initiatives and consistent visual storytelling.",
+      metrics: [
+        { value: "Ongoing", label: "In-house support" },
+        { value: "Strong", label: "Design consistency" },
+        { value: "Premium", label: "Brand positioning" },
+      ],
+    },
+    gallery: [work2, work2, work2],
+  },
+  {
+    id: "21",
+    slug: "rk-wedding",
+    img: work3,
+    title: "RK Wedding",
+    client: "RK",
+    industry: "Events & Weddings",
+    tags: ["Events", "One-time"],
+    year: "2024",
+    challenge:
+      "Execute a high-profile wedding event with strategic communication and coverage. The challenge was managing media relations and creating memorable experiences.",
+    approach:
+      "We coordinated comprehensive event strategy including media relations, influencer management, and content creation. Our approach emphasized elegant storytelling.",
+    impact: {
+      title: "Executed landmark event",
+      description:
+        "The wedding became a talked-about event with strong media coverage and social engagement.",
+      metrics: [
+        { value: "20+", label: "Media features" },
+        { value: "500k+", label: "Social reach" },
+        { value: "Memorable", label: "Execution" },
+      ],
+    },
+    gallery: [work3, work3, work3],
+  },
+  {
+    id: "22",
+    slug: "nav-chaitanya",
+    img: work4,
+    title: "Nav Chaitanya",
+    client: "Nav Chaitanya",
+    industry: "Personal Branding",
+    tags: ["Project", "Branding"],
+    year: "2024",
+    challenge:
+      "Build personal brand visibility and establish professional positioning. The challenge was creating authentic narrative around expertise.",
+    approach:
+      "We developed a strategic personal branding initiative with media outreach and content creation. Our approach emphasized thought leadership and authentic voice.",
+    impact: {
+      title: "Built personal brand presence",
+      description:
+        "Nav Chaitanya established strong professional visibility through strategic communications and media placements.",
+      metrics: [
+        { value: "8+", label: "Media features" },
+        { value: "Strong", label: "Professional positioning" },
+        { value: "Growing", label: "Influence" },
+      ],
+    },
+    gallery: [work4, work4, work4],
+  },
+  {
+    id: "23",
+    slug: "the-other-circle",
+    img: work1,
+    title: "The Other Circle",
+    client: "The Other Circle",
+    industry: "Community & Events",
+    tags: ["Events", "Community"],
+    year: "2024",
+    challenge:
+      "Build community engagement and event visibility for an exclusive community platform. The challenge was creating meaningful member experiences.",
+    approach:
+      "We executed a community-focused strategy emphasizing exclusive events and member networking. Our approach focused on building network value and engagement.",
+    impact: {
+      title: "Built active community network",
+      description:
+        "The Other Circle strengthened its positioning as an exclusive gathering space through strategic events and communications.",
+      metrics: [
+        { value: "15+", label: "Events hosted" },
+        { value: "300+", label: "Active members" },
+        { value: "Strong", label: "Engagement" },
+      ],
+    },
+    gallery: [work1, work1, work1],
+  },
+  {
+    id: "24",
+    slug: "vijay-chabra-personal-profiling",
+    img: work2,
+    title: "Vijay Chabra — Personal Profiling",
+    client: "Vijay Chabra",
+    industry: "Personal Branding & Consulting",
+    tags: ["Retainer", "Branding"],
+    year: "2024",
+    challenge:
+      "Build and maintain executive personal brand with strategic communications. The challenge was establishing thought leadership and professional authority.",
+    approach:
+      "We executed a comprehensive retainer-based personal profiling strategy. Our approach emphasized consistent media presence, thought leadership content, and executive positioning.",
+    impact: {
+      title: "Established executive authority",
+      description:
+        "Vijay Chabra built strong professional authority through sustained media presence and strategic communications.",
+      metrics: [
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "18+", label: "Media features" },
+        { value: "Strong", label: "Executive brand" },
+      ],
+    },
+    gallery: [work2, work2, work2],
+  },
+  {
+    id: "25",
+    slug: "cinema-salon",
+    img: work3,
+    title: "Cinema Salon",
+    client: "Cinema Salon",
+    industry: "Entertainment & Culture",
+    tags: ["Project", "Events"],
+    year: "2024",
+    challenge:
+      "Build awareness and audience engagement for a film-focused cultural initiative. The challenge was attracting cinephiles and media attention.",
+    approach:
+      "We developed a culturally-focused strategy emphasizing editorial coverage and community building. Our approach highlighted artistic merit and curated programming.",
+    impact: {
+      title: "Built engaged film community",
+      description:
+        "Cinema Salon established itself as a respected venue for film appreciation through strategic media coverage and community events.",
+      metrics: [
+        { value: "12+", label: "Media features" },
+        { value: "20+", label: "Events hosted" },
+        { value: "Growing", label: "Audience base" },
+      ],
+    },
+    gallery: [work3, work3, work3],
+  },
+  {
+    id: "26",
+    slug: "roma-gandhi",
+    img: work4,
+    title: "Roma Gandhi",
+    client: "Roma Gandhi",
+    industry: "Personal Branding",
+    tags: ["Project", "Content"],
+    year: "2024",
+    challenge:
+      "Build personal brand presence and establish professional positioning. The challenge was creating distinctive personal narrative.",
+    approach:
+      "We executed a strategic personal branding project with media outreach and content development. Our approach emphasized authentic storytelling.",
+    impact: {
+      title: "Built strong personal brand",
+      description:
+        "Roma Gandhi established clear professional identity through strategic media placements and quality content.",
+      metrics: [
+        { value: "10+", label: "Media features" },
+        { value: "15+", label: "Content pieces" },
+        { value: "Growing", label: "Professional presence" },
+      ],
+    },
+    gallery: [work4, work4, work4],
+  },
+  {
+    id: "27",
+    slug: "shenoys-1976",
+    img: work1,
+    title: "Shenoy's 1976",
+    client: "Shenoy's",
+    industry: "F&B & Heritage",
+    tags: ["Project", "Heritage"],
+    year: "2024",
+    challenge:
+      "Build awareness for a heritage F&B establishment with legacy storytelling. The challenge was connecting tradition with contemporary relevance.",
+    approach:
+      "We developed a heritage-focused strategy emphasizing brand history and authenticity. Through media coverage and community engagement, we positioned the brand.",
+    impact: {
+      title: "Established heritage credibility",
+      description:
+        "Shenoy's 1976 strengthened its positioning as an authentic, legacy establishment through strategic storytelling.",
+      metrics: [
+        { value: "14+", label: "Media features" },
+        { value: "Strong", label: "Heritage narrative" },
+        { value: "Growing", label: "Customer base" },
+      ],
+    },
+    gallery: [work1, work1, work1],
+  },
+  {
+    id: "28",
+    slug: "nistha-bansal-personal-profiling",
+    img: work2,
+    title: "Nistha Bansal — Personal Profiling",
+    client: "Nistha Bansal",
+    industry: "Personal Branding & Consulting",
+    tags: ["Retainer", "Branding"],
+    year: "2024",
+    challenge:
+      "Build and maintain professional personal brand with sustained communications. The challenge was establishing consistent thought leadership.",
+    approach:
+      "We executed a comprehensive retainer-based personal profiling strategy. Our approach emphasized consistent media presence and professional authority building.",
+    impact: {
+      title: "Established professional authority",
+      description:
+        "Nistha Bansal built strong professional credibility through ongoing media presence and strategic communications.",
+      metrics: [
+        { value: "Ongoing", label: "Retainer partnership" },
+        { value: "16+", label: "Media features" },
+        { value: "Strong", label: "Professional brand" },
+      ],
+    },
+    gallery: [work2, work2, work2],
   },
 ];
 
