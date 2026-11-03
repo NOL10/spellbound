@@ -140,6 +140,24 @@ function Index() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
   const [newsletterError, setNewsletterError] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const categories = [
+    "Media Coverage",
+    "Celebrity & Influencer Placements",
+    "Blogger Collaborations",
+    "Social Media",
+    "Event Curation",
+    "Visual Branding & Storytelling",
+  ];
+
+  const filteredProjects = selectedCategory
+    ? workProjects.filter((project) =>
+        project.tags.some((tag) =>
+          tag.toLowerCase().includes(selectedCategory.toLowerCase())
+        )
+      )
+    : workProjects;
 
   useEffect(() => {
     const tick = () => {
@@ -353,7 +371,7 @@ We shape the way brands communicate with the world through PR, social media, bra
 
       <section id="work" className="border-t border-border pt-24 md:pt-32">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-          <div className="flex items-end justify-between">
+          <div className="flex items-end justify-between gap-8 mb-12">
             <div>
               <p className="text-eyebrow text-accent">
                 (02) Selected work
@@ -362,13 +380,40 @@ We shape the way brands communicate with the world through PR, social media, bra
                 Made <span className="italic">to be</span> remembered.
               </h2>
             </div>
-            <Link to="/work" className="hidden text-sm underline underline-offset-4 md:block">
+            <Link to="/work" className="hidden text-sm underline underline-offset-4 md:block whitespace-nowrap">
               View archive →
             </Link>
           </div>
 
+          {/* Filter Buttons */}
+          <div className="mb-12 flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedCategory(null)}
+              className={`px-3 md:px-4 py-2 text-xs md:text-sm border transition-all duration-300 rounded-full ${
+                selectedCategory === null
+                  ? "border-accent bg-accent/10 text-accent"
+                  : "border-border/60 hover:border-accent/60 text-foreground"
+              }`}
+            >
+              All
+            </button>
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-3 md:px-4 py-2 text-xs md:text-sm border transition-all duration-300 rounded-full ${
+                  selectedCategory === category
+                    ? "border-accent bg-accent/10 text-accent"
+                    : "border-border/60 hover:border-accent/60 text-foreground"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
           <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2">
-            {workProjects.slice(0, 4).map((w, i) => {
+            {filteredProjects.slice(0, 4).map((w, i) => {
               return (
                 <Link
                   key={w.slug}
@@ -421,21 +466,25 @@ We shape the way brands communicate with the world through PR, social media, bra
               {services.map((s) => (
                 <li
                   key={s.n}
-                  className="group grid grid-cols-12 gap-6 border-t border-cream/15 py-10 transition hover:bg-cream/[0.03] hover:scale-95 duration-300"
+                  className="group grid grid-cols-12 gap-6 border-t border-cream/15 py-10 transition-all duration-500 hover:border-gold/30 cursor-pointer"
                 >
                   <div className="col-span-2 flex items-start justify-between">
-                    <span className="font-mono text-xs text-cream/50">{s.n}</span>
-                    <span className="text-xl transition-transform duration-500 group-hover:rotate-45">
+                    <span className="font-mono text-xs text-cream/50 transition-colors duration-500 group-hover:text-gold">{s.n}</span>
+                    <span className="text-xl transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-gold">
                       ↗
                     </span>
                   </div>
-                  <h3 className="col-span-10 font-display text-4xl transition group-hover:text-gold md:col-span-4 md:text-5xl">
+                  <h3 className="col-span-10 font-display text-4xl transition-all duration-500 group-hover:text-gold md:col-span-4 md:text-5xl">
                     {s.title}
                   </h3>
-                  <ul className="col-span-12 space-y-2 text-cream/70 md:col-span-6">
-                    {s.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span className="text-gold">—</span>
+                  <ul className="col-span-12 space-y-2 text-cream/70 transition-all duration-500 group-hover:text-cream md:col-span-6">
+                    {s.items.map((item, idx) => (
+                      <li 
+                        key={item} 
+                        className="flex items-start gap-2 transition-all duration-500 group-hover:translate-x-2"
+                        style={{ transitionDelay: `${idx * 50}ms` }}
+                      >
+                        <span className="text-gold/60 transition-all duration-500 group-hover:text-gold group-hover:scale-125">—</span>
                         <span>{item}</span>
                       </li>
                     ))}
