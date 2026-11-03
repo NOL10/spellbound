@@ -231,6 +231,8 @@ function Index() {
         <img
           src={hero}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover opacity-35 mix-blend-screen"
         />
         <div className="starfield absolute inset-0 opacity-90" aria-hidden />
@@ -380,6 +382,7 @@ We shape the way brands communicate with the world through PR, social media, bra
                       width={1200}
                       height={1400}
                       loading="lazy"
+                      decoding="async"
                       className="aspect-[5/6] w-full object-cover"
                     />
                   </div>

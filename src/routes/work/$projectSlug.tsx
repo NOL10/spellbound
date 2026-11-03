@@ -126,6 +126,8 @@ function WorkDetail() {
               <img
                 src={project.img}
                 alt={project.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover aspect-video transition-transform duration-700 group-hover:scale-105"
               />
             </div>
@@ -191,6 +193,8 @@ function WorkDetail() {
                     <img
                       src={img}
                       alt={`${project.title} - work ${idx + 1}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover aspect-square md:aspect-auto transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>

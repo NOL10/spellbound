@@ -285,3 +285,38 @@
     transform: scale(1.15);
   }
 }
+
+/* Image Optimization & Performance */
+@supports (content-visibility: auto) {
+  img {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px;
+  }
+}
+
+/* Optimize image rendering */
+img {
+  /* Enable GPU acceleration for image rendering */
+  will-change: opacity, transform;
+  /* Prevent layout shift during load */
+  aspect-ratio: var(--img-aspect-ratio, auto);
+}
+
+/* Optimize images with lazy loading */
+img[loading="lazy"] {
+  /* Provide better perceived performance during load */
+  background-color: var(--muted);
+}
+
+/* Hero images */
+.hero-image {
+  content-visibility: auto;
+  will-change: opacity;
+}
+
+/* Gallery images with optimal settings */
+.gallery-image {
+  content-visibility: auto;
+  will-change: opacity, transform;
+  contain-intrinsic-size: auto 500px;
+}
