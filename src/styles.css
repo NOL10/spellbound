@@ -320,3 +320,54 @@ img[loading="lazy"] {
   will-change: opacity, transform;
   contain-intrinsic-size: auto 500px;
 }
+
+
+/* Gallery Grid Masonry Layout */
+@supports (display: grid) {
+  .gallery-grid {
+    display: grid;
+    grid-auto-flow: dense;
+  }
+
+  .gallery-grid > div:first-child {
+    @apply md:col-span-2 lg:row-span-2;
+  }
+}
+
+/* Responsive Grid Auto-rows */
+@media (max-width: 768px) {
+  .auto-rows-gallery {
+    grid-auto-rows: 280px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .auto-rows-gallery {
+    grid-auto-rows: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .auto-rows-gallery {
+    grid-auto-rows: 320px;
+  }
+}
+
+/* Image Zoom for gallery items */
+.gallery-item {
+  @apply overflow-hidden rounded-xl;
+  
+  img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  &:hover img {
+    @apply scale-110;
+  }
+}
+
+/* Hero image perfect sizing */
+.hero-image {
+  aspect-ratio: 16 / 9;
+  @apply w-full h-auto object-cover;
+}

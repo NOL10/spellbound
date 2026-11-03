@@ -1,6 +1,8 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { ChevronRight, ExternalLink, Instagram, Facebook, Newspaper } from "lucide-react";
 import { getWorkBySlug, getRelatedWork } from "@/lib/work-data";
+import { ProjectHeroImage } from "@/components/ProjectHeroImage";
+import { ProjectGallery } from "@/components/ProjectGallery";
 
 export const Route = createFileRoute("/work/$projectSlug")({
   component: WorkDetail,
@@ -122,15 +124,12 @@ function WorkDetail() {
             </div>
 
             {/* Hero Image */}
-            <div className="overflow-hidden rounded-lg bg-muted border border-border/20 group cursor-pointer">
-              <img
-                src={project.img}
-                alt={project.title}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto object-cover aspect-video transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
+            <ProjectHeroImage
+              src={project.img}
+              alt={project.title}
+              title={`${project.title} - ${project.client}`}
+              className="md:mt-4"
+            />
           </div>
         </section>
 
@@ -169,41 +168,8 @@ function WorkDetail() {
           </div>
         </section>
 
-        {/* Gallery Section - Enhanced Visual */}
-        <section className="border-t border-border/60 py-24 md:py-32">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-            <div className="mb-16">
-              <p className="text-eyebrow text-accent mb-3 uppercase">Visual Work</p>
-              <h2 className="font-display text-5xl md:text-6xl leading-tight">
-                Design in action
-              </h2>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-max">
-              {project.gallery.map((img, idx) => (
-                <div
-                  key={idx}
-                  className="group overflow-hidden rounded-lg bg-muted border border-border/20 hover:border-accent/50 transition-all duration-500"
-                  style={{
-                    gridColumn: idx === 0 ? "span 1" : "span 1",
-                    gridRow: idx === 0 ? "span 2" : "span 1",
-                  }}
-                >
-                  <div className="overflow-hidden h-full">
-                    <img
-                      src={img}
-                      alt={`${project.title} - work ${idx + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover aspect-square md:aspect-auto transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Gallery Section */}
+        <ProjectGallery images={project.gallery} projectTitle={project.title} />
 
         {/* Impact Section - Enhanced */}
         <section className="border-t border-border/60 py-24 md:py-40 bg-gradient-to-b from-muted/50 to-background">
