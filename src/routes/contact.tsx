@@ -20,16 +20,59 @@ function Contact() {
     name: "",
     email: "",
     company: "",
+    mobile: "",
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsSubmitting(true);
+    setError(null);
+
+    const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
+    if (!scriptUrl) {
+      setError("Google Script URL not configured. Please set VITE_GOOGLE_SCRIPT_URL in your .env file.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Use GET request with query parameters to avoid CORS issues
+      const url = new URL(scriptUrl);
+      url.searchParams.append("type", "contact");
+      url.searchParams.append("name", formData.name);
+      url.searchParams.append("email", formData.email);
+      url.searchParams.append("company", formData.company);
+      url.searchParams.append("mobile", formData.mobile);
+      url.searchParams.append("message", formData.message);
+
+      const response = await fetch(url.toString(), {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", company: "", mobile: "", message: "" });
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (err) {
+      setError("Failed to submit form. Please try again or contact us directly.");
+      console.error("Form submission error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -130,6 +173,11 @@ function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && (
+                    <div className="bg-red-500/10 border border-red-500/30 text-red-500 p-4 rounded">
+                      {error}
+                    </div>
+                  )}
                   <div>
                     <label htmlFor="name" className="block text-sm uppercase tracking-wider text-muted-foreground mb-2">
                       Name
@@ -175,6 +223,20 @@ function Contact() {
                   </div>
 
                   <div>
+                    <label htmlFor="mobile" className="block text-sm uppercase tracking-wider text-muted-foreground mb-2">
+                      Mobile (optional)
+                    </label>
+                    <input
+                      type="tel"
+                      id="mobile"
+                      value={formData.mobile}
+                      onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                      className="w-full bg-background border border-border px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors"
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+
+                  <div>
                     <label htmlFor="message" className="block text-sm uppercase tracking-wider text-muted-foreground mb-2">
                       Message
                     </label>
@@ -191,9 +253,12 @@ function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full border border-foreground px-8 py-5 hover:bg-foreground hover:text-background transition-colors group inline-flex items-center justify-center gap-4"
+                    disabled={isSubmitting}
+                    className="w-full border border-foreground px-8 py-5 hover:bg-foreground hover:text-background transition-colors group inline-flex items-center justify-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-foreground"
                   >
-                    <span className="text-eyebrow">Send message</span>
+                    <span className="text-eyebrow">
+                      {isSubmitting ? "Sending..." : "Send message"}
+                    </span>
                     <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
                   </button>
                 </form>

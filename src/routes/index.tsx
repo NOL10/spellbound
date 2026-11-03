@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
         content:
           "A communications and brand storytelling house. Public relations, brand strategy, influencer and content for founders who refuse to be forgettable.",
       },
-      { property: "og:title", content: "Spellbound — A communications house for bold brands" },
+      { property: "og:title", content: "Spellbound - A communications house for bold brands" },
       {
         property: "og:description",
         content: "Public relations, brand strategy, influencer and content for bold brands.",
@@ -26,69 +26,81 @@ export const Route = createFileRoute("/")({
 });
 
 const clients = [
-  "RARA",
-  "Donna Cucina",
+  "Grey Soul",
+  "Reema Avalani",
+  "Husna Rahman",
+  "Rishi Basu",
   "Nanna's Negroni",
-  "Jakobi Chocolatier",
-  "Grey Soul Coffee",
-  "Rever by RB",
+  "Jamba Juice",
+  "Donna Cucina",
+  "Donna Cucina - Summer Festival",
+  "Greater Good",
+  "729",
   "House of Sachi",
-  "Blackberrys",
-  "La Folie",
-  "Ekaa",
-  "Dassani Brothers",
-  "Reliance Jewels",
+  "Rever by Riddhi",
+  "RK Wedding",
+  "Nav Chaitanya",
+  "The other circle",
   "The Lakehouse",
-  "Gamezop",
+  "RARA",
+  "Moni K",
+  "Vijay Chabra",
+  "Jacobi",
+  "Jacobi Social media",
+  "Cinema salon",
+  "Chaitanya Thane",
+  "Blackberry",
+  "MRDA Ahmedabad",
+  "Roma Gandhi",
+  "Shenoy's 1976",
+  "CIU",
+  "Nistha Bansal",
 ];
 
 const services = [
   {
     n: "01",
-    title: "Public Relations",
-    body:
-      "Media relations and coverage, influencer collaborations, celebrity placements, cross-brand partnerships and communications strategy.",
+    title: "Public Relations & Communications",
+    items: [
+      "Media Relations & Coverage",
+      "Influencer Collaborations",
+      "Celebrity Placements",
+      "Cross-Brand Collaborations & Partnerships",
+      "Brand Communications Strategy",
+    ],
   },
   {
     n: "02",
-    title: "Social & Content",
-    body:
-      "Social strategy, content planning and creative direction, copywriting, brand voice, community and channel management.",
+    title: "Social Media & Content Creation",
+    items: [
+      "Social Media Strategy",
+      "Content Planning & Creative Direction",
+      "Copywriting & Brand Voice Development",
+      "Social Media Management",
+      "Community Engagement",
+    ],
   },
   {
     n: "03",
     title: "Events & Experiences",
-    body:
-      "Curation and concept, guest listing, vendor and production, launches, brand dinners and private experiences.",
+    items: [
+      "Event Curation & Concept Development",
+      "Guest Listing",
+      "Vendor & Production Management",
+      "Launches, Brand Dinners & Private Experiences",
+    ],
   },
   {
     n: "04",
-    title: "Branding",
-    body:
-      "Identity development, visual systems, brand messaging and positioning, collaterals and communication assets.",
-  },
-  {
-    n: "05",
-    title: "Collaborations",
-    body:
-      "Cross-brand partnerships and cultural tie-ups engineered around fit, story and shared audience — not follower counts.",
-  },
-  {
-    n: "06",
-    title: "Community",
-    body:
-      "Long-term community building — the quiet, everyday work that turns customers into a brand's loudest advocates.",
+    title: "Branding & Brand Development",
+    items: [
+      "Brand Identity Development",
+      "Visual Identity Systems",
+      "Brand Messaging & Positioning",
+      "Brand Collaterals & Communication Assets",
+    ],
   },
 ];
-
-const sectors = [
-  ["Hospitality & F&B", "Boutique hotels, fine dining, cafés and emerging culinary concepts."],
-  ["Design & Architecture", "Interior design studios, architects and design-led spaces."],
-  ["Luxury & Lifestyle", "Bespoke brands across fashion, beauty, decor and experiential retail."],
-  ["Art & Culture", "Artists, ateliers, curators and cultural collectives."],
-  ["Conscious Living", "Purpose-driven brands rooted in craftsmanship, heritage and slow design."],
-  ["Real Estate", "Lifestyle-driven residential and hospitality developments."],
-] as const;
 
 function useSpotlight(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
@@ -124,6 +136,10 @@ function Index() {
   const heroRef = useRef<HTMLElement>(null);
   useSpotlight(heroRef);
   const [time, setTime] = useState("");
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
+  const [newsletterError, setNewsletterError] = useState<string | null>(null);
+
   useEffect(() => {
     const tick = () => {
       const t = new Intl.DateTimeFormat("en-IN", {
@@ -138,6 +154,50 @@ function Index() {
     const id = setInterval(tick, 30_000);
     return () => clearInterval(id);
   }, []);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setNewsletterError(null);
+
+    const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
+    if (!scriptUrl) {
+      setNewsletterError("Newsletter service not configured.");
+      return;
+    }
+
+    if (!newsletterEmail) {
+      setNewsletterError("Please enter your email.");
+      return;
+    }
+
+    try {
+      const url = new URL(scriptUrl);
+      url.searchParams.append("type", "newsletter");
+      url.searchParams.append("email", newsletterEmail);
+
+      const response = await fetch(url.toString(), {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        setNewsletterSubmitted(true);
+        setNewsletterEmail("");
+        setTimeout(() => setNewsletterSubmitted(false), 3000);
+      } else {
+        throw new Error("Subscription failed");
+      }
+    } catch (err) {
+      setNewsletterError("Failed to subscribe. Please try again.");
+      console.error("Newsletter subscription error:", err);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -208,10 +268,10 @@ function Index() {
             </h1>
             <div className="mt-10 grid gap-6 md:grid-cols-3 md:gap-16">
               <p className="col-span-2 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">
-                Spellbound is a communications studio shaping how brands speak to
-                the world — through PR, social, branding, collaborations,
-                experiences and every touchpoint in between. Small by design,
-                agile by nature, quietly obsessed with the details.
+               Where strategy meets story and a little bit of magic.
+At Spellbound Communications, we are the storytellers behind brands people remember.
+We shape the way brands communicate with the world through PR, social media, branding, collaborations, experiences, communities, and every touchpoint that builds meaningful engagement.
+
               </p>
               <div className="flex items-end gap-3 md:justify-end">
                 <a
@@ -257,20 +317,22 @@ function Index() {
               <p className="text-eyebrow text-accent">
                 (01) The studio
               </p>
+              <h2 className="mt-4 font-display text-5xl md:text-6xl">
+                We work as custodians, not vendors.
+              </h2>
             </div>
             <div className="md:col-span-8">
               <p className="font-display text-3xl leading-tight md:text-6xl">
-                We work as custodians, not vendors. A limited roster,
-                deliberately chosen — so every brand gets the focus, care and
+                A limited roster, deliberately chosen  so every brand gets the focus, care and
                 <span className="italic text-accent"> genuine ownership</span> it
                 deserves.
               </p>
               <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
                 {[
-                  ["7+", "years in comms"],
-                  ["6", "sectors covered"],
+                  ["8+", "years in comms"],
                   ["Pan-India", "reach"],
                   ["Curated", "roster"],
+                  ["Limited", "engagements"],
                 ].map(([n, l]) => (
                   <div key={l} className="border-t border-border pt-4">
                     <div className="font-display text-4xl md:text-5xl">{n}</div>
@@ -307,7 +369,8 @@ function Index() {
               return (
                 <Link
                   key={w.slug}
-                  to={`/work/${w.slug}`}
+                  to="/work/$projectSlug"
+                  params={{ projectSlug: w.slug }}
                   className={`group block ${i % 2 === 1 ? "md:mt-32" : ""}`}
                 >
                   <div className="image-zoom overflow-hidden bg-muted">
@@ -341,17 +404,13 @@ function Index() {
           <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
             <div className="md:col-span-4">
               <p className="text-eyebrow text-gold">
-                (03) What we do
+                (02) What we do
               </p>
               <h2 className="mt-4 font-display text-5xl md:text-7xl">
-                Six ways
+                We believe PR is more than press
                 <br />
-                we work.
+                And Hence,
               </h2>
-              <p className="mt-6 max-w-sm text-cream/70">
-                Full-service by design, editorial by instinct. We plug in where
-                you need us — or run the room.
-              </p>
             </div>
 
             <ul className="md:col-span-8">
@@ -369,32 +428,14 @@ function Index() {
                   <h3 className="col-span-10 font-display text-4xl transition group-hover:text-gold md:col-span-4 md:text-5xl">
                     {s.title}
                   </h3>
-                  <p className="col-span-12 max-w-md text-cream/70 md:col-span-6">{s.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border py-24 md:py-32">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
-            <div className="md:col-span-4">
-              <p className="text-eyebrow text-accent">
-                (04) Where stories take shape
-              </p>
-              <h2 className="mt-4 font-display text-5xl md:text-6xl">
-                Sectors we
-                <br />
-                <span className="italic">live in</span>.
-              </h2>
-            </div>
-            <ul className="md:col-span-8">
-              {sectors.map(([t, d]) => (
-                <li key={t} className="group grid grid-cols-12 gap-6 border-t border-border py-8">
-                  <h3 className="col-span-12 font-display text-3xl transition group-hover:text-accent group-hover:italic group-hover:translate-x-2 md:col-span-5 md:text-4xl">{t}</h3>
-                  <p className="col-span-12 text-muted-foreground md:col-span-7">{d}</p>
+                  <ul className="col-span-12 space-y-2 text-cream/70 md:col-span-6">
+                    {s.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="text-gold">—</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
               ))}
             </ul>
@@ -410,8 +451,7 @@ function Index() {
         <span aria-hidden className="animate-magical-float absolute left-[45%] top-[10%] text-lg text-gold/60 transition-all duration-500 group-hover:scale-125 group-hover:rotate-45 group-hover:text-gold" style={{ animationDelay: "2s" }}>✧</span>
         <div className="mx-auto max-w-5xl px-6 text-center md:px-10 relative">
           <p className="font-display text-4xl leading-tight md:text-6xl animate-quote-glow transition-all duration-500 group-hover:scale-105 group-hover:text-accent/90">
-            <span className="text-accent transition-colors duration-300 group-hover:text-gold">"</span>The strongest brands are not
-            always the loudest — they are the ones people feel connected to.
+            <span className="text-accent transition-colors duration-300 group-hover:text-gold">"</span>Because the most enduring brands are built not in noise, but in nuance, where clear thinking, human connection, and a little bit of magic come together naturally.
             <span className="text-accent transition-colors duration-300 group-hover:text-gold">"</span>
           </p>
           <p className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-all duration-300 group-hover:text-foreground">
@@ -438,17 +478,23 @@ function Index() {
               <span className="text-gold mr-2">◆</span> Founder & Brand Strategist
             </div>
             <p className="font-display text-3xl md:text-4xl leading-snug text-cream mb-8">
-              "The most enduring brands are built not in noise, but in <em className="text-gold">nuance</em>."
+              A little strategic.
+              <br />
+              A little instinctive.
+              <br />
+              And always, a little <em className="text-gold">spellbinding</em>.
             </p>
             <p className="text-cream/75 leading-relaxed mb-4">
-              Bringing over seven years of experience in public relations and brand management,
-              Rachel is a dynamic storyteller with a keen eye for culture, communication, and the
-              nuances that make brands memorable.
+              I've always been drawn to the stories behind things: that make a place memorable, why some brands become part of culture, and what makes people pause, notice, and care. Over the last 8+ years, working across hospitality, food, fashion, luxury, travel, lifestyle, and culture, I've learnt that good communication is equal parts strategy, instinct, curiosity, and timing.
+            </p>
+            <p className="text-cream/75 leading-relaxed mb-4">
+              Spellbound grew out of that belief. I wanted to build a studio that thinks beyond the obvious, cares about the details, and treats communication as something to be crafted rather than churned out.
+            </p>
+            <p className="text-cream/75 leading-relaxed mb-4">
+              I envision Spellbound as a place where smart thinking can be playful, ideas can have personality, and brands can be built with both ambition and care.
             </p>
             <p className="text-cream/75 leading-relaxed">
-              With a strong network across media and influencer ecosystems, she leads Spellbound
-              with a thoughtful, hands-on approach — building the studio she always wished
-              existed.
+              Because, ultimately, the work I want to put into the world should make people feel something and hopefully, leave a little bit of magic behind.
             </p>
           </div>
         </div>
@@ -506,19 +552,30 @@ function Index() {
               <p className="text-cream/70 max-w-md mb-8">
                 Receive curated insights on brand storytelling, PR strategies, and cultural trends — delivered with intention.
               </p>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold/50 transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="bg-gold text-ink px-6 py-3 font-display text-sm uppercase tracking-wider hover:bg-gold/90 transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
+              {newsletterSubmitted ? (
+                <div className="bg-gold/20 border border-gold/30 text-gold p-4 rounded">
+                  Subscribed successfully!
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md">
+                  {newsletterError && (
+                    <div className="text-red-400 text-sm">{newsletterError}</div>
+                  )}
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    className="flex-1 bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold/50 transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    className="bg-gold text-ink px-6 py-3 font-display text-sm uppercase tracking-wider hover:bg-gold/90 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              )}
             </div>
             <div className="flex flex-col justify-center md:items-end">
               <div className="text-eyebrow text-gold mb-4">
