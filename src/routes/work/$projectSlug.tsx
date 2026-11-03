@@ -49,11 +49,11 @@ function WorkDetail() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-4 md:px-10">
-          <Link to="/" className="font-display text-2xl leading-none tracking-tight">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 md:px-6 lg:px-10 py-3 md:py-4">
+          <Link to="/" className="font-display text-lg md:text-2xl leading-none tracking-tight">
             Spellbound<span className="text-accent">.</span>
           </Link>
-          <nav className="hidden gap-8 text-sm md:flex">
+          <nav className="hidden gap-6 md:gap-8 text-xs md:text-sm md:flex">
             <a href="/#work" className="link-sweep">
               Work
             </a>
@@ -69,56 +69,57 @@ function WorkDetail() {
           </nav>
           <Link
             to="/contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-foreground/80 px-4 py-2 text-sm transition hover:bg-foreground hover:text-background"
+            className="group inline-flex items-center gap-1 md:gap-2 rounded-full border border-foreground/80 px-3 md:px-4 py-2 text-xs md:text-sm transition hover:bg-foreground hover:text-background"
           >
-            Start a project
+            <span className="hidden sm:inline">Start a project</span>
+            <span className="sm:hidden">Contact</span>
             <span className="transition group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
       </header>
 
-      <div className="pt-28 md:pt-32">
+      <div className="pt-20 md:pt-28 lg:pt-32">
         {/* Breadcrumb */}
-        <div className="border-b border-border/60 py-4">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="border-b border-border/60 py-3 md:py-4">
+          <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-10">
+            <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
               <Link to="/work" className="hover:text-foreground transition">
                 Work
               </Link>
-              <ChevronRight className="w-4 h-4" />
-              <span className="text-foreground">{project.title}</span>
+              <ChevronRight className="w-3 md:w-4 h-3 md:h-4" />
+              <span className="text-foreground truncate">{project.title}</span>
             </div>
           </div>
         </div>
 
         {/* Hero Section with Image */}
         <section>
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10 pt-16 md:pt-24 pb-8 md:pb-16">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-16">
+          <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-10 py-12 md:pt-24 md:pb-16">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start mb-12 md:mb-16">
               <div className="md:col-span-8">
-                <p className="text-eyebrow text-accent mb-4 uppercase tracking-wider">{project.industry}</p>
-                <h1 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[0.9] mb-8 tracking-tighter">
+                <p className="text-eyebrow text-accent mb-2 md:mb-4 uppercase tracking-wider text-xs md:text-sm">{project.industry}</p>
+                <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight md:leading-[0.9] mb-6 md:mb-8 tracking-tighter">
                   {project.title}
                 </h1>
-                <div className="flex flex-wrap gap-2 text-sm">
-                  {project.tags.map((tag) => (
+                <div className="flex flex-wrap gap-2 text-xs md:text-sm">
+                  {project.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="inline-block bg-accent/10 hover:bg-accent/20 text-accent px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium transition-colors"
+                      className="inline-block bg-accent/10 hover:bg-accent/20 text-accent px-3 md:px-4 py-1 md:py-2 rounded-full text-xs uppercase tracking-wider font-medium transition-colors"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="md:col-span-4 flex flex-col justify-start gap-8">
+              <div className="md:col-span-4 flex flex-col justify-start gap-6 md:gap-8">
                 <div>
-                  <p className="text-eyebrow text-muted-foreground mb-2 uppercase tracking-wider">Client</p>
-                  <p className="font-display text-3xl leading-tight">{project.client}</p>
+                  <p className="text-eyebrow text-muted-foreground mb-2 uppercase tracking-wider text-xs">Client</p>
+                  <p className="font-display text-xl md:text-3xl leading-tight">{project.client}</p>
                 </div>
                 <div>
-                  <p className="text-eyebrow text-muted-foreground mb-2 uppercase tracking-wider">Year</p>
-                  <p className="font-display text-3xl leading-tight">{project.year}</p>
+                  <p className="text-eyebrow text-muted-foreground mb-2 uppercase tracking-wider text-xs">Year</p>
+                  <p className="font-display text-xl md:text-3xl leading-tight">{project.year}</p>
                 </div>
               </div>
             </div>
@@ -134,33 +135,33 @@ function WorkDetail() {
         </section>
 
         {/* Objectives Section */}
-        <section className="border-t border-border/60 py-24 md:py-32">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+        <section className="border-t border-border/60 py-12 md:py-24 lg:py-32">
+          <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24">
               {/* Challenge as Objective */}
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div>
-                  <p className="text-eyebrow text-accent mb-3 uppercase">Objective</p>
-                  <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground">
+                  <p className="text-eyebrow text-accent mb-2 md:mb-3 uppercase text-xs md:text-sm">Objective</p>
+                  <h2 className="font-display text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight md:leading-[1.1] text-foreground">
                     The Challenge
                   </h2>
                 </div>
-                <div className="w-12 h-1 bg-accent/30 rounded-full" />
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
+                <div className="w-8 md:w-12 h-1 bg-accent/30 rounded-full" />
+                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed font-light">
                   {project.challenge}
                 </p>
               </div>
 
               {/* Approach as Objective */}
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div>
-                  <p className="text-eyebrow text-accent mb-3 uppercase">Objective</p>
-                  <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-foreground">
+                  <p className="text-eyebrow text-accent mb-2 md:mb-3 uppercase text-xs md:text-sm">Objective</p>
+                  <h2 className="font-display text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight md:leading-[1.1] text-foreground">
                     Our Approach
                   </h2>
                 </div>
-                <div className="w-12 h-1 bg-accent/30 rounded-full" />
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
+                <div className="w-8 md:w-12 h-1 bg-accent/30 rounded-full" />
+                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed font-light">
                   {project.approach}
                 </p>
               </div>
@@ -172,31 +173,31 @@ function WorkDetail() {
         <ProjectGallery images={project.gallery} projectTitle={project.title} />
 
         {/* Impact Section - Enhanced */}
-        <section className="border-t border-border/60 py-24 md:py-40 bg-gradient-to-b from-muted/50 to-background">
-          <div className="mx-auto max-w-[1600px] px-6 md:px-10">
-            <div className="mb-16 md:mb-24">
-              <p className="text-eyebrow text-accent mb-4 uppercase">The Results</p>
-              <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-8">
+        <section className="border-t border-border/60 py-12 md:py-24 lg:py-40 bg-gradient-to-b from-muted/50 to-background">
+          <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-10">
+            <div className="mb-10 md:mb-16 lg:mb-24">
+              <p className="text-eyebrow text-accent mb-2 md:mb-4 uppercase text-xs md:text-sm">The Results</p>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight md:leading-[0.95] mb-6 md:mb-8">
                 {project.impact.title}
               </h2>
-              <div className="w-12 h-1 bg-accent rounded-full mb-8" />
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl font-light">
+              <div className="w-8 md:w-12 h-1 bg-accent rounded-full mb-6 md:mb-8" />
+              <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-3xl font-light">
                 {project.impact.description}
               </p>
             </div>
 
             {/* Metrics Grid - Enhanced */}
             {project.impact.metrics && project.impact.metrics.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
                 {project.impact.metrics.map((metric, idx) => (
                   <div key={idx} className="group">
-                    <div className="flex items-baseline gap-3 mb-4">
-                      <div className="font-display text-5xl md:text-6xl lg:text-7xl text-accent font-bold tracking-tighter">
+                    <div className="flex items-baseline gap-3 mb-3 md:mb-4">
+                      <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-accent font-bold tracking-tighter">
                         {metric.value}
                       </div>
                     </div>
-                    <div className="h-0.5 w-12 bg-accent/40 mb-6 group-hover:w-24 group-hover:bg-accent transition-all duration-500" />
-                    <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition-colors">
+                    <div className="h-0.5 w-8 md:w-12 bg-accent/40 mb-4 md:mb-6 md:group-hover:w-24 md:group-hover:bg-accent transition-all duration-500" />
+                    <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground md:group-hover:text-foreground transition-colors">
                       {metric.label}
                     </div>
                   </div>
