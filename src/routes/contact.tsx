@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -118,9 +118,9 @@ function Contact() {
                     <Mail className="w-4 h-4" />
                     rachel@spellboundcomms.com
                   </a>
-                  <a href="tel:+919561932285" className="flex items-center gap-3 mt-2 text-muted-foreground hover:text-accent transition">
-                    <Phone className="w-4 h-4" />
-                    +91 95619 32285
+                  <a href="mailto:hello@spellboundcomms.com" className="flex items-center gap-3 mt-2 text-muted-foreground hover:text-accent transition">
+                    <Mail className="w-4 h-4" />
+                    hello@spellboundcomms.com
                   </a>
                 </div>
 
@@ -140,22 +140,13 @@ function Contact() {
                   <div className="text-eyebrow text-muted-foreground mb-4">Follow us</div>
                   <div className="flex gap-6">
                     <a
-                      href="https://instagram.com"
+                      href="https://www.instagram.com/spellbound_communications?srtk=MW03cGRjenlhc3N3MA=="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center gap-3 text-foreground/70 hover:text-accent transition-colors"
                     >
                       <Instagram className="w-5 h-5" />
                       <span className="text-sm">Instagram</span>
-                    </a>
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center gap-3 text-foreground/70 hover:text-accent transition-colors"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                      <span className="text-sm">LinkedIn</span>
                     </a>
                   </div>
                 </div>
@@ -232,7 +223,7 @@ function Contact() {
                       value={formData.mobile}
                       onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                       className="w-full bg-background border border-border px-4 py-3 text-foreground focus:outline-none focus:border-accent transition-colors"
-                      placeholder="+91 98765 43210"
+                      placeholder="hello@spellboundcomms.com"
                     />
                   </div>
 

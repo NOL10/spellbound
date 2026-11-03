@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import hero from "@/assets/hero.png";
 import { workProjects } from "@/lib/work-data";
 
@@ -520,7 +520,7 @@ We shape the way brands communicate with the world through PR, social media, bra
               <a href="mailto:rachel@spellboundcomms.com" className="block mt-2 text-foreground/80 hover:text-accent transition underline underline-offset-4 decoration-1">
                 rachel@spellboundcomms.com
               </a>
-              <a href="tel:+919561932285" className="block mt-1 text-muted-foreground">+91 95619 32285</a>
+              <a href="mailto:hello@spellboundcomms.com" className="block mt-1 text-muted-foreground hover:text-accent transition">hello@spellboundcomms.com</a>
             </div>
             <div>
               <div className="text-eyebrow text-muted-foreground mb-3">Studio</div>
@@ -589,7 +589,7 @@ We shape the way brands communicate with the world through PR, social media, bra
               </h3>
               <div className="flex gap-6">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/spellbound_communications?srtk=MW03cGRjenlhc3N3MA=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
@@ -598,16 +598,7 @@ We shape the way brands communicate with the world through PR, social media, bra
                   <span className="text-sm">Instagram</span>
                 </a>
                 <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span className="text-sm">LinkedIn</span>
-                </a>
-                <a
-                  href="mailto:rachel@spellboundcomms.com"
+                  href="mailto:hello@spellboundcomms.com"
                   className="group flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
                 >
                   <Mail className="w-5 h-5" />
