@@ -9,19 +9,25 @@ interface ProjectHeroImageProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * ProjectHeroImage Component
  * 
- * Optimized for all devices:
- * - Mobile: 3:2 aspect ratio (wider) for better mobile viewing
- * - Desktop: 16:9 aspect ratio for cinematic feel
- * - Perfect loading and transitions
- * - Touch-friendly on mobile devices
+ * Premium hero image with:
+ * - Optimal sizing for impact
+ * - 16:9 cinematic aspect ratio on desktop
+ * - Responsive sizing across all devices
+ * - Beautiful hover and transition effects
  */
 export function ProjectHeroImage({ src, alt, title, className = '', ...props }: ProjectHeroImageProps) {
   return (
     <div 
-      className="overflow-hidden rounded-lg md:rounded-xl border border-border/30 bg-muted group cursor-pointer active:scale-95 md:active:scale-100 transition-transform" 
+      className="overflow-hidden rounded-lg md:rounded-2xl border border-border/30 bg-muted group cursor-pointer active:scale-95 md:active:scale-100 transition-transform" 
       {...props}
     >
-      <div className="relative w-full overflow-hidden">
+      <div 
+        className="relative w-full overflow-hidden"
+        style={{
+          aspectRatio: '16 / 9',
+          minHeight: '320px'
+        }}
+      >
         <img
           src={src}
           alt={alt}
@@ -29,16 +35,12 @@ export function ProjectHeroImage({ src, alt, title, className = '', ...props }: 
           loading="eager"
           decoding="async"
           className={`
-            w-full h-auto object-cover
+            w-full h-full object-cover
             transition-transform duration-700 ease-out
             md:group-hover:scale-105
             active:scale-105 md:active:scale-100
             ${className}
           `}
-          style={{ 
-            aspectRatio: 'auto',
-            minHeight: '280px'
-          }}
         />
 
         {/* Subtle overlay for depth - visible on mobile */}
@@ -60,6 +62,19 @@ export function ProjectHeroImage({ src, alt, title, className = '', ...props }: 
             opacity-0 md:group-hover:opacity-100
             transition-opacity duration-700
             pointer-events-none
+            hidden md:block
+          "
+        />
+
+        {/* Premium glow border on hover */}
+        <div
+          className="
+            absolute inset-0 pointer-events-none
+            rounded-lg md:rounded-2xl
+            opacity-0 md:group-hover:opacity-100
+            transition-opacity duration-300
+            bg-gradient-to-br from-accent/40 to-transparent
+            mix-blend-overlay
             hidden md:block
           "
         />

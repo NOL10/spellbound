@@ -137,33 +137,22 @@ function WorkDetail() {
         {/* Objectives Section */}
         <section className="border-t border-border/60 py-12 md:py-24 lg:py-32">
           <div className="mx-auto max-w-[1600px] px-4 md:px-6 lg:px-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24">
-              {/* Challenge as Objective */}
-              <div className="space-y-4 md:space-y-6">
-                <div>
-                  <p className="text-eyebrow text-accent mb-2 md:mb-3 uppercase text-xs md:text-sm">Objective</p>
-                  <h2 className="font-display text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight md:leading-[1.1] text-foreground">
-                    The Challenge
-                  </h2>
+            <div className="space-y-10 md:space-y-12 lg:space-y-16">
+              {/* Objectives Header */}
+              <div className="max-w-3xl">
+                <p className="text-eyebrow text-accent mb-2 md:mb-3 uppercase text-xs md:text-sm">Overview</p>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-[1.1] text-foreground mb-6 md:mb-8">
+                  Our Objectives
+                </h2>
+                <div className="w-8 md:w-12 h-1 bg-accent rounded-full mb-8 md:mb-10" />
+                <div className="space-y-6">
+                  <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed font-light">
+                    {project.challenge}
+                  </p>
+                  <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed font-light">
+                    {project.approach}
+                  </p>
                 </div>
-                <div className="w-8 md:w-12 h-1 bg-accent/30 rounded-full" />
-                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed font-light">
-                  {project.challenge}
-                </p>
-              </div>
-
-              {/* Approach as Objective */}
-              <div className="space-y-4 md:space-y-6">
-                <div>
-                  <p className="text-eyebrow text-accent mb-2 md:mb-3 uppercase text-xs md:text-sm">Objective</p>
-                  <h2 className="font-display text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight md:leading-[1.1] text-foreground">
-                    Our Approach
-                  </h2>
-                </div>
-                <div className="w-8 md:w-12 h-1 bg-accent/30 rounded-full" />
-                <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed font-light">
-                  {project.approach}
-                </p>
               </div>
             </div>
           </div>
