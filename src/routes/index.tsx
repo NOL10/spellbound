@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Instagram, Mail } from "lucide-react";
 import hero from "@/assets/hero.png";
+import rachelImage from "@/assets/rachel fargoes.jpeg";
 import { workProjects } from "@/lib/work-data";
 
 export const Route = createFileRoute("/")({
@@ -466,14 +467,12 @@ We shape the way brands communicate with the world through PR, social media, bra
       <section id="founder" className="bg-ink text-cream py-32 md:py-48 px-6 md:px-10 grain">
         <div className="mx-auto max-w-[1600px] grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-5">
-            <div className="aspect-[4/5] bg-gradient-to-br from-gold-soft/40 via-gold/30 to-ink border border-cream/10 relative overflow-hidden flex items-end p-10">
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `url(${hero})`, backgroundSize: "cover", backgroundPosition: "center" }} />
-              <div className="relative">
-                <div className="font-display text-[18vw] md:text-[9vw] leading-[0.85] text-cream/95">
-                  Rachel <br />
-                  <em className="text-gold">Fargoes</em>
-                </div>
-              </div>
+            <div className="aspect-[4/5] bg-gradient-to-br from-gold-soft/40 via-gold/30 to-ink border border-cream/10 relative overflow-hidden">
+              <img 
+                src={rachelImage} 
+                alt="Rachel Fargoes - Founder & Brand Strategist"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           <div className="md:col-span-6 md:col-start-7">
