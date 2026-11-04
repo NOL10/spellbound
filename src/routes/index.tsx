@@ -28,9 +28,7 @@ export const Route = createFileRoute("/")({
 
 const clients = [
   "Grey Soul",
-  "Reema Avalani",
   "Husna Rahman",
-  "Rishi Basu",
   "Nanna's Negroni",
   "Jamba Juice",
   "Donna Cucina",
@@ -41,21 +39,16 @@ const clients = [
   "Rever by Riddhi",
   "RK Wedding",
   "Nav Chaitanya",
-  "The other circle",
   "The Lakehouse",
   "RARA",
   "Moni K",
-  "Vijay Chabra",
   "Jacobi",
-  "Jacobi Social media",
   "Cinema salon",
   "Chaitanya Thane",
   "Blackberry",
   "MRDA Ahmedabad",
-  "Roma Gandhi",
   "Shenoy's 1976",
   "CIU",
-  "Nistha Bansal",
 ];
 
 const services = [
@@ -273,23 +266,23 @@ function Index() {
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-[1600px] flex-col justify-between px-6 pt-32 pb-10 md:px-10">
           <div className="flex items-start justify-between text-[10px] uppercase tracking-[0.25em] text-cream/60">
-            <span>A communications studio · Pan-India</span>
+            {/* <span>A communications studio · Pan-India</span>
             <span className="hidden md:inline">Boutique · By Invitation</span>
-            <span className="tabular-nums">{time}</span>
+            <span className="tabular-nums">{time}</span> */}
           </div>
 
           <div className="pb-12">
-            <p className="mb-8 max-w-md font-display text-lg italic text-cream/70">
+            {/* <p className="mb-8 max-w-md font-display text-lg italic text-cream/70">
               — a communications studio
-            </p>
+            </p> */}
             <h1 className="font-display text-[clamp(3.5rem,12vw,13rem)] leading-[0.88] tracking-tight">
-              <span className="block">We help brands</span>
-              <span className="block italic text-gold">become<span className="animate-blink">.</span></span>
-              <span className="block">conversations.</span>
+              <span className="block">Where strategy</span>
+              <span className="block">meets story</span>
+              <span className="block italic text-gold">and a little bit<span className="animate-blink">.</span></span>
+              <span className="block">of magic.</span>
             </h1>
             <div className="mt-10 grid gap-6 md:grid-cols-3 md:gap-16">
               <p className="col-span-2 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">
-               Where strategy meets story and a little bit of magic.
 At Spellbound Communications, we are the storytellers behind brands people remember.
 We shape the way brands communicate with the world through PR, social media, branding, collaborations, experiences, communities, and every touchpoint that builds meaningful engagement.
 
