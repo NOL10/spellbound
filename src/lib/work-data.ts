@@ -288,7 +288,7 @@ export const workProjects: WorkProject[] = [
     title: "Jakobi Chocolatier",
     client: "Jacobi",
     industry: "Artisanal F&B",
-    tags: [],
+    tags: ["Media Coverage", "Social Media", "Visual Branding & Storytelling", "Blogger Collaborations"],
     year: "2024",
     challenge: "Establish credibility as an artisanal chocolatier in a mass-market dominated space. The challenge was communicating authentic craftsmanship.",
     approach: "We positioned Jakobi as a custodian of chocolate craft through a retainer-based partnership. Our strategy focused on storytelling around process, ingredients, and artisanal excellence.",
@@ -600,6 +600,52 @@ export const workProjects: WorkProject[] = [
       ],
     },
     gallery: [work4, work4, work4],
+  },
+  {
+    id: "28",
+    slug: "vijay-chabbra-baked-beauty",
+    img: work3,
+    title: "Vijay Chabbra - Baked Beauty",
+    client: "Vijay Chabbra",
+    industry: "F&B & Bakery",
+    tags: ["Social Media"],
+    year: "2024",
+    challenge: "Build brand awareness and engagement for a specialty bakery through social media. The challenge was creating authentic, engaging content that resonates with home bakers and food enthusiasts.",
+    approach: "We executed a social-first strategy focused on community building and authentic content creation. Our approach emphasized storytelling around baking craft and customer experiences.",
+    impact: {
+      title: "Built engaged bakery community",
+      description: "Vijay Chabbra - Baked Beauty established strong social media presence with engaged followers through consistent, authentic content and community interaction.",
+      metrics: [
+        { value: "Ongoing", label: "Social management" },
+        { value: "6.2%", label: "Engagement rate" },
+        { value: "3k+", label: "Engaged followers" }
+      ],
+    },
+    gallery: [work3, work3, work3],
+    mediaCoverage: [],
+  },
+  {
+    id: "29",
+    slug: "foundation-gift",
+    img: work1,
+    title: "Foundation Gift",
+    client: "Foundation Gift",
+    industry: "Gifting & Lifestyle",
+    tags: ["Media Coverage"],
+    year: "2024",
+    challenge: "Build brand awareness and establish positioning in the luxury gifting space. The challenge was creating premium brand narrative and media presence.",
+    approach: "We developed a strategic media relations and PR campaign emphasizing craftsmanship and luxury positioning. Our approach focused on editorial coverage and brand storytelling.",
+    impact: {
+      title: "Established luxury gifting presence",
+      description: "Foundation Gift built strong brand presence through strategic media coverage and premium positioning in the luxury gifting market.",
+      metrics: [
+        { value: "10+", label: "Media features" },
+        { value: "Strong", label: "Brand positioning" },
+        { value: "Growing", label: "Market presence" }
+      ],
+    },
+    gallery: [work1, work1, work1],
+    mediaCoverage: [],
   }
   
 ];

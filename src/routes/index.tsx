@@ -48,6 +48,8 @@ const clients = [
   "Blackberry",
   "MRDA Ahmedabad",
   "Shenoy's 1976",
+  "Vijay Chabbra",
+  "Foundation Gift",
   "CIU",
 ];
 
@@ -144,6 +146,8 @@ function Index() {
     "Visual Branding & Storytelling",
   ];
 
+  const featuredBrands = ["Nanna's Negroni", "Moni K", "Jakobi Chocolatier", "RARA"];
+  
   const filteredProjects = selectedCategory
     ? workProjects.filter((project) =>
         project.tags.some((tag) =>
@@ -151,6 +155,12 @@ function Index() {
         )
       )
     : workProjects;
+
+  const featured = workProjects.filter((p) =>
+    featuredBrands.some((b) => p.title.includes(b))
+  );
+  
+  const remainingProjects = filteredProjects.filter((p) => !featured.includes(p));
 
   useEffect(() => {
     const tick = () => {
@@ -406,37 +416,124 @@ We shape the way brands communicate with the world through PR, social media, bra
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2">
-            {filteredProjects.slice(0, 4).map((w, i) => {
-              return (
-                <Link
-                  key={w.slug}
-                  to="/work/$projectSlug"
-                  params={{ projectSlug: w.slug }}
-                  className={`group block ${i % 2 === 1 ? "md:mt-32" : ""}`}
-                >
-                  <div className="image-zoom overflow-hidden bg-muted">
-                    <img
-                      src={w.img}
-                      alt={w.title}
-                      width={1200}
-                      height={1400}
-                      loading="lazy"
-                      decoding="async"
-                      className="aspect-[5/6] w-full object-cover"
-                    />
+            {!selectedCategory && featured.length > 0 ? (
+              <>
+                {/* Featured brands section */}
+                <div className="md:col-span-2">
+                  <div className="mb-8">
+                    <p className="text-eyebrow text-accent mb-4">Featured Work</p>
+                    <h3 className="font-display text-3xl md:text-5xl">Brands we're particularly proud of</h3>
                   </div>
-                  <div className="mt-6 flex items-baseline justify-between gap-6">
-                    <h3 className="font-display text-3xl md:text-4xl">{w.title}</h3>
-                    <span className="font-mono text-xs text-muted-foreground">{w.year}</span>
-                  </div>
-                  <div className="mt-2 flex gap-3 text-sm text-muted-foreground">
-                    {w.tags.map((t) => (
-                      <span key={t}>— {t}</span>
+                  <div className="grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2">
+                    {featured.map((w, i) => (
+                      <Link
+                        key={w.slug}
+                        to="/work/$projectSlug"
+                        params={{ projectSlug: w.slug }}
+                        className={`group block ${i % 2 === 1 ? "md:mt-32" : ""}`}
+                      >
+                        <div className="image-zoom overflow-hidden bg-muted ring-2 ring-accent/30 hover:ring-accent/60 transition-all duration-300 rounded-lg">
+                          <img
+                            src={w.img}
+                            alt={w.title}
+                            width={1200}
+                            height={1400}
+                            loading="lazy"
+                            decoding="async"
+                            className="aspect-[5/6] w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                        <div className="mt-6 flex items-baseline justify-between gap-6">
+                          <h3 className="font-display text-3xl md:text-4xl group-hover:text-accent transition-colors">{w.title}</h3>
+                          <span className="font-mono text-xs text-muted-foreground">{w.year}</span>
+                        </div>
+                        <div className="mt-2 flex gap-3 text-sm text-muted-foreground">
+                          {w.tags.map((t) => (
+                            <span key={t}>— {t}</span>
+                          ))}
+                        </div>
+                      </Link>
                     ))}
                   </div>
-                </Link>
-              );
-            })}
+                </div>
+
+                {/* Other projects */}
+                <div className="md:col-span-2">
+                  <div className="mb-8 flex items-end justify-between gap-6">
+                    <h3 className="font-display text-3xl md:text-5xl">Our other works</h3>
+                    <Link
+                      to="/work"
+                      className="px-4 py-2 text-sm border border-border/60 hover:border-accent/60 text-foreground hover:text-accent transition-all duration-300 rounded-full whitespace-nowrap"
+                    >
+                      View all works
+                    </Link>
+                  </div>
+                  <div className="grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-2">
+                    {remainingProjects.slice(0, 4).map((w, i) => (
+                      <Link
+                        key={w.slug}
+                        to="/work/$projectSlug"
+                        params={{ projectSlug: w.slug }}
+                        className={`group block ${i % 2 === 1 ? "md:mt-32" : ""}`}
+                      >
+                        <div className="image-zoom overflow-hidden bg-muted rounded-lg">
+                          <img
+                            src={w.img}
+                            alt={w.title}
+                            width={1200}
+                            height={1400}
+                            loading="lazy"
+                            decoding="async"
+                            className="aspect-[5/6] w-full object-cover"
+                          />
+                        </div>
+                        <div className="mt-6 flex items-baseline justify-between gap-6">
+                          <h3 className="font-display text-3xl md:text-4xl">{w.title}</h3>
+                          <span className="font-mono text-xs text-muted-foreground">{w.year}</span>
+                        </div>
+                        <div className="mt-2 flex gap-3 text-sm text-muted-foreground">
+                          {w.tags.map((t) => (
+                            <span key={t}>— {t}</span>
+                          ))}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </>
+            ) : (
+              filteredProjects.slice(0, 4).map((w, i) => {
+                return (
+                  <Link
+                    key={w.slug}
+                    to="/work/$projectSlug"
+                    params={{ projectSlug: w.slug }}
+                    className={`group block ${i % 2 === 1 ? "md:mt-32" : ""}`}
+                  >
+                    <div className="image-zoom overflow-hidden bg-muted">
+                      <img
+                        src={w.img}
+                        alt={w.title}
+                        width={1200}
+                        height={1400}
+                        loading="lazy"
+                        decoding="async"
+                        className="aspect-[5/6] w-full object-cover"
+                      />
+                    </div>
+                    <div className="mt-6 flex items-baseline justify-between gap-6">
+                      <h3 className="font-display text-3xl md:text-4xl">{w.title}</h3>
+                      <span className="font-mono text-xs text-muted-foreground">{w.year}</span>
+                    </div>
+                    <div className="mt-2 flex gap-3 text-sm text-muted-foreground">
+                      {w.tags.map((t) => (
+                        <span key={t}>— {t}</span>
+                      ))}
+                    </div>
+                  </Link>
+                );
+              })
+            )}
           </div>
         </div>
       </section>
